@@ -1,0 +1,12 @@
+id,escena,personaje,emocion,image,esp,en,respuestas_esp,respuestas_en,siguientes_ids,efectos,tiempo_typing
+start,escena_1,Bot,neutral,bot.png,Hola.||1||¿Cuál es tu color favorito?,Hi.||What's your favorite color?,Rojo|Blanco|Negro,Red|White|Black,escena_1_1|escena_1_2|escena_1_3,+amistad|neutral|-amistad,2
+escena_1_1,escena_1_1,Bot,feliz,bot_sonrie.png,¡A mí también me gusta el rojo!,I like red too!,Sí|No,Yes|No,escena_1_fin|escena_1_fin,---|---,2
+escena_1_2,escena_1_2,Bot,neutral,bot.png,El blanco es un color pacífico.,White is a peaceful color.,Ok,Ok,escena_1_fin,---,2
+escena_1_3,escena_1_3,Bot,enojado,bot_enojado.png,¡¿Negro?! No me gusta ese color.,Black?! I don't like that color.,Perdón,Sorry,escena_1_fin,---,2
+escena_1_fin,escena_1_fin,Bot,neutral,bot.png,Fin del diálogo.,End of dialogue.,,,,---,2
+,,,,,,,,,,,
+escena_2,escena_2,Bot,neutral,bot.png,¿Que tal?.||2||¿Cuál es tu musica favorita?,Hellow.||What's your favorite music?,Chiptune|Rock|Pop,Chiptune|Rock|Pop,escena_2_1|escena_2_2|escena_2_3,+amistad|neutral|-amistad,2
+escena_2_1,escena_2_1,Bot,feliz,bot_sonrie.png,¡A mí también me gusta el rojo!,I like red too!,Sí|No,Yes|No,escena_2_fin|escena_2_fin,---|---,2
+escena_2_2,escena_2_2,Bot,neutral,bot.png,El blanco es un color pacífico.,White is a peaceful color.,Ok,Ok,escena_2_fin,---,2
+escena_2_3,escena_2_3,Bot,enojado,bot_enojado.png,¡¿Negro?! No me gusta ese color.,Black?! I don't like that color.,Perdón,Sorry,escena_2_fin,---,2
+escena_2_fin,escena_2_fin,Bot,neutral,bot.png,Fin del diálogo.,End of dialogue.,,,,---,2

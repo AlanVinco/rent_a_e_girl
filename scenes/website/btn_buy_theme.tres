@@ -1,0 +1,39 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://b47stwiji5ix6"]
+
+[ext_resource type="StyleBox" uid="uid://btg5fcyohrcvr" path="res://scenes/website/btn_buy.tres" id="1_jshs0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_juayx"]
+bg_color = Color(0.135717, 0.000202294, 0.352801, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uipia"]
+bg_color = Color(0.552941, 0.407843, 0.94902, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6nfab"]
+bg_color = Color(0.709804, 0, 0.364706, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+shadow_size = 5
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxFlat_juayx")
+Button/styles/hover = SubResource("StyleBoxFlat_uipia")
+Button/styles/normal = ExtResource("1_jshs0")
+Button/styles/pressed = SubResource("StyleBoxFlat_6nfab")

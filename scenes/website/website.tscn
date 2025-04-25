@@ -1,0 +1,774 @@
+[gd_scene load_steps=32 format=3 uid="uid://d1iu0unqhd8py"]
+
+[ext_resource type="Texture2D" uid="uid://dwhds2m8sjins" path="res://asset/icons/start.png" id="1_oy4ei"]
+[ext_resource type="Script" uid="uid://bhy0jjhsjsb0d" path="res://scenes/website/website.gd" id="1_voifu"]
+[ext_resource type="Texture2D" uid="uid://cdy3fni2obwn0" path="res://asset/icons/dolaricon-no_bg.png" id="2_52y3t"]
+[ext_resource type="StyleBox" uid="uid://txq50w4ug4kr" path="res://scenes/website/play_button.tres" id="2_a1iej"]
+[ext_resource type="Texture2D" uid="uid://0pnv7xcfxf1" path="res://asset/logo/logo_v1.png" id="2_p4l0u"]
+[ext_resource type="Texture2D" uid="uid://c5qfype7delp2" path="res://asset/icons/avatar_circle_test.png" id="6_7tflo"]
+[ext_resource type="PackedScene" uid="uid://dpppcsletwvma" path="res://scenes/website/profile.tscn" id="6_fwqxy"]
+[ext_resource type="Theme" uid="uid://cgs16mm6y1fmt" path="res://scenes/website/close_button.tres" id="9_3g7pv"]
+[ext_resource type="Texture2D" uid="uid://dc17088d861o6" path="res://asset/art/Dee/ArikaSifukuTere.png" id="10_ug5wh"]
+[ext_resource type="StyleBox" uid="uid://8bs1kdmwxwfb" path="res://scenes/website/chatButton.tres" id="10_vpc02"]
+[ext_resource type="PackedScene" uid="uid://dnsb5ul6teb51" path="res://scenes/website/bubble_text.tscn" id="11_23o76"]
+[ext_resource type="PackedScene" uid="uid://dmq0o3tk3kxyx" path="res://scenes/dialogue_manager.tscn" id="12_lfsmy"]
+[ext_resource type="PackedScene" uid="uid://blpc5x2g5s4iw" path="res://scenes/chat/typing_bubble.tscn" id="13_ncn7w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tflo"]
+bg_color = Color(0.188235, 0.184314, 0.239216, 1)
+shadow_size = 20
+
+[sub_resource type="Theme" id="Theme_oy4ei"]
+Panel/styles/panel = SubResource("StyleBoxFlat_7tflo")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ewfx"]
+bg_color = Color(0.188235, 0.184314, 0.239216, 1)
+border_width_top = 50
+border_color = Color(0.0705882, 0.054902, 0.105882, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Theme" id="Theme_a1iej"]
+Panel/styles/panel = SubResource("StyleBoxFlat_6ewfx")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcd1l"]
+bg_color = Color(0.129412, 0.129412, 0.172549, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Theme" id="Theme_hcd1l"]
+Panel/styles/panel = SubResource("StyleBoxFlat_hcd1l")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ko26i"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oy4ei"]
+bg_color = Color(0.552941, 0.407843, 0.94902, 1)
+border_width_top = 50
+border_color = Color(0, 0, 0, 0)
+corner_radius_top_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_52y3t"]
+bg_color = Color(0.71123, 0, 0.366053, 1)
+border_width_top = 50
+border_color = Color(0, 0, 0, 0)
+corner_radius_top_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Theme" id="Theme_52y3t"]
+Button/styles/hover = SubResource("StyleBoxFlat_oy4ei")
+Button/styles/normal = ExtResource("2_a1iej")
+Button/styles/pressed = SubResource("StyleBoxFlat_52y3t")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p4l0u"]
+bg_color = Color(0.188235, 0.184314, 0.239216, 1)
+
+[sub_resource type="Theme" id="Theme_7tflo"]
+Panel/styles/panel = SubResource("StyleBoxFlat_p4l0u")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7b33"]
+bg_color = Color(0.0728426, 0.0728426, 0.0728426, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8t0jl"]
+bg_color = Color(0.556081, 0.557474, 0.670754, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vpc02"]
+bg_color = Color(0.106449, 0.106422, 0.149932, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 10
+
+[sub_resource type="Theme" id="Theme_vpc02"]
+Button/styles/disabled = SubResource("StyleBoxFlat_i7b33")
+Button/styles/hover = SubResource("StyleBoxFlat_8t0jl")
+Button/styles/normal = ExtResource("10_vpc02")
+Button/styles/pressed = SubResource("StyleBoxFlat_vpc02")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ug5wh"]
+bg_color = Color(0.12549, 0.12549, 0.168627, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="Theme" id="Theme_23o76"]
+Panel/styles/panel = SubResource("StyleBoxFlat_ug5wh")
+
+[node name="Website" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_voifu")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0705882, 0.054902, 0.105882, 1)
+
+[node name="Navbar" type="Panel" parent="."]
+z_index = 10
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 92.0
+grow_horizontal = 2
+theme = SubResource("Theme_oy4ei")
+
+[node name="TextureRect" type="TextureRect" parent="Navbar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -51.0
+offset_top = -57.0
+offset_right = 63.0
+offset_bottom = 57.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_p4l0u")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 160.0
+offset_top = 137.0
+offset_right = -55.0
+offset_bottom = -56.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="Card" type="Panel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_a1iej")
+
+[node name="BotInfo" type="Panel" parent="HBoxContainer/Card"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -144.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_hcd1l")
+
+[node name="Stars" type="TextureRect" parent="HBoxContainer/Card/BotInfo"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -20.0
+offset_right = -152.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("1_oy4ei")
+expand_mode = 1
+
+[node name="Puntacion" type="Label" parent="HBoxContainer/Card/BotInfo"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -21.0
+offset_right = -33.0
+offset_bottom = 21.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "4.8(556)"
+
+[node name="DolarIcon" type="TextureRect" parent="HBoxContainer/Card/BotInfo"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -40.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_vertical = 2
+texture = ExtResource("2_52y3t")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Cost" type="Label" parent="HBoxContainer/Card/BotInfo"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 74.0
+offset_top = -11.0
+offset_right = 84.0
+offset_bottom = 12.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "5"
+
+[node name="Cost2" type="Label" parent="HBoxContainer/Card/BotInfo"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 102.0
+offset_top = -7.5
+offset_right = 131.0
+offset_bottom = 20.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = ",00"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Card"]
+layout_mode = 1
+offset_right = 384.0
+offset_bottom = 415.0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("CompressedTexture2D_ko26i")
+expand_mode = 5
+
+[node name="PlayDee" type="Button" parent="HBoxContainer/Card"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -114.0
+offset_bottom = 109.0
+grow_horizontal = 0
+theme = SubResource("Theme_52y3t")
+theme_override_font_sizes/font_size = 30
+text = "▶"
+
+[node name="NickName" type="Label" parent="HBoxContainer/Card"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.601
+anchor_top = 0.5
+anchor_right = 0.601
+anchor_bottom = 0.5
+offset_left = -0.51799
+offset_top = -28.0
+offset_right = 111.482
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Dee ♡"
+
+[node name="Label2" type="Label" parent="HBoxContainer/Card"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -11.5
+offset_right = 55.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "txt_dee_short_info"
+
+[node name="Card2" type="Panel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_a1iej")
+
+[node name="BotInfo" type="Panel" parent="HBoxContainer/Card2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -144.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_hcd1l")
+
+[node name="Stars" type="TextureRect" parent="HBoxContainer/Card2/BotInfo"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -20.0
+offset_right = -152.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("1_oy4ei")
+expand_mode = 1
+
+[node name="Puntacion" type="Label" parent="HBoxContainer/Card2/BotInfo"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -21.0
+offset_right = -33.0
+offset_bottom = 21.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "4.8(556)"
+
+[node name="DolarIcon" type="TextureRect" parent="HBoxContainer/Card2/BotInfo"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -40.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_vertical = 2
+texture = ExtResource("2_52y3t")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Cost" type="Label" parent="HBoxContainer/Card2/BotInfo"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 74.0
+offset_top = -11.0
+offset_right = 84.0
+offset_bottom = 12.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "5"
+
+[node name="Cost2" type="Label" parent="HBoxContainer/Card2/BotInfo"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 102.0
+offset_top = -7.5
+offset_right = 131.0
+offset_bottom = 20.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = ",00"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Card2"]
+layout_mode = 1
+offset_right = 384.0
+offset_bottom = 415.0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("CompressedTexture2D_ko26i")
+expand_mode = 5
+
+[node name="Play" type="Button" parent="HBoxContainer/Card2"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -114.0
+offset_bottom = 109.0
+grow_horizontal = 0
+theme = SubResource("Theme_52y3t")
+theme_override_font_sizes/font_size = 30
+text = "▶"
+
+[node name="NickName" type="Label" parent="HBoxContainer/Card2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.601
+anchor_top = 0.5
+anchor_right = 0.601
+anchor_bottom = 0.5
+offset_left = -0.51799
+offset_top = -28.0
+offset_right = 111.482
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Dee ♡"
+
+[node name="Label2" type="Label" parent="HBoxContainer/Card2"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -11.5
+offset_right = 55.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "txt_dee_short_info"
+
+[node name="Card3" type="Panel" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = SubResource("Theme_a1iej")
+
+[node name="BotInfo" type="Panel" parent="HBoxContainer/Card3"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -144.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_hcd1l")
+
+[node name="Stars" type="TextureRect" parent="HBoxContainer/Card3/BotInfo"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -20.0
+offset_right = -152.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("1_oy4ei")
+expand_mode = 1
+
+[node name="Puntacion" type="Label" parent="HBoxContainer/Card3/BotInfo"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -146.0
+offset_top = -21.0
+offset_right = -33.0
+offset_bottom = 21.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "4.8(556)"
+
+[node name="DolarIcon" type="TextureRect" parent="HBoxContainer/Card3/BotInfo"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -40.0
+offset_right = 80.0
+offset_bottom = 40.0
+grow_vertical = 2
+texture = ExtResource("2_52y3t")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Cost" type="Label" parent="HBoxContainer/Card3/BotInfo"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 74.0
+offset_top = -11.0
+offset_right = 84.0
+offset_bottom = 12.0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "5"
+
+[node name="Cost2" type="Label" parent="HBoxContainer/Card3/BotInfo"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 102.0
+offset_top = -7.5
+offset_right = 131.0
+offset_bottom = 20.5
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = ",00"
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Card3"]
+layout_mode = 1
+offset_right = 384.0
+offset_bottom = 415.0
+scale = Vector2(0.5, 0.5)
+texture = SubResource("CompressedTexture2D_ko26i")
+expand_mode = 5
+
+[node name="Play" type="Button" parent="HBoxContainer/Card3"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -114.0
+offset_bottom = 109.0
+grow_horizontal = 0
+theme = SubResource("Theme_52y3t")
+theme_override_font_sizes/font_size = 30
+text = "▶"
+
+[node name="NickName" type="Label" parent="HBoxContainer/Card3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.601
+anchor_top = 0.5
+anchor_right = 0.601
+anchor_bottom = 0.5
+offset_left = -0.51799
+offset_top = -28.0
+offset_right = 111.482
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Dee ♡"
+
+[node name="Label2" type="Label" parent="HBoxContainer/Card3"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -11.5
+offset_right = 55.0
+offset_bottom = 11.5
+grow_vertical = 2
+text = "txt_dee_short_info"
+
+[node name="SideBar4" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.883681
+anchor_right = 1.88368
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.188235, 0.184314, 0.239216, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="SideBar4"]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 113.0
+offset_right = 50.0
+offset_bottom = 121.0
+text = "click"
+
+[node name="Profile" parent="." instance=ExtResource("6_fwqxy")]
+visible = false
+layout_mode = 1
+
+[node name="SideBar" type="Panel" parent="."]
+z_index = 9
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7tflo")
+
+[node name="AvatarImage" type="TextureRect" parent="SideBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.408854
+anchor_top = 0.0987654
+anchor_right = 0.472222
+anchor_bottom = 0.21142
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_7tflo")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Username" type="Label" parent="SideBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.467448
+anchor_top = 0.127315
+anchor_right = 0.532552
+anchor_bottom = 0.212191
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "Dee"
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SideBar"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -143.0
+offset_bottom = 647.0
+grow_horizontal = 0
+
+[node name="AvatarCircleTest" type="Sprite2D" parent="SideBar/VBoxContainer"]
+position = Vector2(91, 203)
+scale = Vector2(0.372222, 0.372222)
+texture = ExtResource("6_7tflo")
+
+[node name="AvatarCircleTest2" type="Sprite2D" parent="SideBar/VBoxContainer"]
+position = Vector2(91, 303)
+scale = Vector2(0.372222, 0.372222)
+texture = ExtResource("6_7tflo")
+
+[node name="Button" type="Button" parent="SideBar"]
+z_index = 9
+layout_mode = 0
+offset_left = 42.0
+offset_top = 113.0
+offset_right = 84.0
+offset_bottom = 144.0
+theme = ExtResource("9_3g7pv")
+text = "→
+"
+
+[node name="LineRect" type="ColorRect" parent="SideBar"]
+visible = false
+layout_mode = 0
+offset_left = 1001.0
+offset_top = 120.0
+offset_right = 1002.0
+offset_bottom = 174.0
+color = Color(0.25098, 0.25098, 0.333333, 1)
+
+[node name="ChatButton" type="Button" parent="SideBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0416667
+anchor_top = 0.834877
+anchor_right = 0.904514
+anchor_bottom = 0.907407
+offset_top = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_vpc02")
+text = "txt_choose_answer"
+metadata/_edit_use_anchors_ = true
+
+[node name="ChatMessages" type="Panel" parent="SideBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0451389
+anchor_top = 0.216049
+anchor_right = 0.903646
+anchor_bottom = 0.825617
+offset_top = -1.52588e-05
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_23o76")
+metadata/_edit_use_anchors_ = true
+
+[node name="VScrollBar" type="ScrollContainer" parent="SideBar/ChatMessages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ChatContainer" type="VBoxContainer" parent="SideBar/ChatMessages/VScrollBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="BubbleText" parent="SideBar/ChatMessages/VScrollBar/ChatContainer" instance=ExtResource("11_23o76")]
+visible = false
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="SideBar/ChatMessages/VScrollBar/ChatContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("10_ug5wh")
+stretch_mode = 3
+
+[node name="BubbleText2" parent="SideBar/ChatMessages/VScrollBar/ChatContainer" instance=ExtResource("11_23o76")]
+visible = false
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="SideBar/ChatMessages/VScrollBar/ChatContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("10_ug5wh")
+
+[node name="BubbleText3" parent="SideBar/ChatMessages/VScrollBar/ChatContainer" instance=ExtResource("11_23o76")]
+visible = false
+layout_mode = 2
+
+[node name="Mantener" type="TextureRect" parent="SideBar/ChatMessages/VScrollBar/ChatContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="DialogueManager" parent="SideBar" instance=ExtResource("12_lfsmy")]
+
+[node name="TypingBubble" parent="SideBar" instance=ExtResource("13_ncn7w")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.476563
+anchor_top = 0.135802
+anchor_right = 0.497396
+anchor_bottom = 0.177469
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="OptionsContainer" type="VBoxContainer" parent="SideBar"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -379.0
+offset_top = -181.0
+offset_right = 380.0
+offset_bottom = 194.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sounds" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="HBoxContainer/Card/PlayDee" to="." method="_on_play_dee_pressed"]
+[connection signal="pressed" from="SideBar/ChatButton" to="." method="_on_chat_button_pressed"]

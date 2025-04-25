@@ -1,0 +1,260 @@
+[gd_scene load_steps=16 format=3 uid="uid://hnbobvvw1ihp"]
+
+[ext_resource type="Script" uid="uid://127roxbs2l7y" path="res://scenes/games/sword_player.gd" id="1_a0kt4"]
+[ext_resource type="Script" uid="uid://cswleo15xgu3e" path="res://scenes/games/hit_area.gd" id="2_ddsxc"]
+[ext_resource type="Texture2D" uid="uid://cgq46jkfr2eti" path="res://asset/swordGame/shadow_circle.png" id="2_i77jp"]
+[ext_resource type="Texture2D" uid="uid://b0e7xkxhtp8vt" path="res://asset/swordGame/sword_ice.png" id="3_e56ty"]
+[ext_resource type="Texture2D" uid="uid://byf3daqlirsw6" path="res://asset/swordGame/trail.png" id="4_e56ty"]
+[ext_resource type="Texture2D" uid="uid://wgoi1wj13rqt" path="res://asset/swordGame/ice_2.png" id="5_sn88k"]
+
+[sub_resource type="Animation" id="Animation_e56ty"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Sword:flip_v")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_i77jp"]
+resource_name = "slash_bare_rotation"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5, 9.01248, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [-2.22529, 1.5708, 0.0, -2.22529]
+}
+
+[sub_resource type="Animation" id="Animation_sn88k"]
+resource_name = "slash_left"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D/Sword:flip_v")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.227169, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-1.57146, -4.35175, -2.27691]
+}
+
+[sub_resource type="Animation" id="Animation_ddsxc"]
+resource_name = "slash_right"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [-1.57146, 1.43118, -0.986111]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Sword:flip_v")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_2jgmx"]
+resource_name = "slash_with_trail"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 4, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -2.4487, 1.5708, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Sword/trail:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_plcb0"]
+resource_name = "slash_with_trail_left"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 4, 12),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [3.14159, 5.7177, 1.90939, 3.14159]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Sword/trail:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker2D/Sword:flip_v")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 12),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e56ty"]
+_data = {
+&"RESET": SubResource("Animation_e56ty"),
+&"slash_bare_rotation": SubResource("Animation_i77jp"),
+&"slash_left": SubResource("Animation_sn88k"),
+&"slash_right": SubResource("Animation_ddsxc"),
+&"slash_with_trail": SubResource("Animation_2jgmx"),
+&"slash_with_trail_left": SubResource("Animation_plcb0")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ddsxc"]
+radius = 19.2239
+height = 115.602
+
+[sub_resource type="Curve" id="Curve_i77jp"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.497175, 13.4831), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="SwordPlayer" type="Node2D"]
+script = ExtResource("1_a0kt4")
+
+[node name="shadow" type="Sprite2D" parent="."]
+position = Vector2(16, 41)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_i77jp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_e56ty")
+}
+speed_scale = 30.0
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(-1.91014e-06, 8.34465e-06)
+
+[node name="Sword" type="Sprite2D" parent="Marker2D"]
+z_index = 2
+position = Vector2(40, 0.0312004)
+texture = ExtResource("3_e56ty")
+
+[node name="HitArea" type="Area2D" parent="Marker2D/Sword"]
+z_as_relative = false
+position = Vector2(11.2494, 1.85748)
+rotation = 1.07339
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("2_ddsxc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Sword/HitArea"]
+position = Vector2(-2, 0)
+rotation = -2.62012
+shape = SubResource("CapsuleShape2D_ddsxc")
+
+[node name="trail" type="Sprite2D" parent="Marker2D/Sword"]
+visible = false
+z_as_relative = false
+position = Vector2(25, -22.0312)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_e56ty")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Marker2D"]
+position = Vector2(63, 2.99999)
+amount = 6
+texture = ExtResource("5_sn88k")
+randomness = 1.0
+fract_delta = false
+emission_shape = 2
+emission_sphere_radius = 20.39
+direction = Vector2(0, 1)
+spread = 25.0
+angular_velocity_min = -29.09
+angular_velocity_max = 85.54
+damping_min = 100.0
+damping_max = 100.0
+damping_curve = SubResource("Curve_i77jp")
+scale_amount_min = 0.03
+scale_amount_max = 0.2
+split_scale = true
+scale_curve_x = null
+scale_curve_y = null
+color = Color(0.73037, 0.940799, 1, 1)
+
+[node name="SlashSound" type="AudioStreamPlayer2D" parent="."]

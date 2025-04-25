@@ -1,0 +1,110 @@
+[gd_scene load_steps=8 format=3 uid="uid://b467txikgj7ja"]
+
+[ext_resource type="Script" uid="uid://i0qniavo2gu5" path="res://scenes/games/enemy_npc.gd" id="1_ocmnj"]
+[ext_resource type="Texture2D" uid="uid://c3gxhnekvcr5n" path="res://asset/swordGame/boss_inactive.png" id="2_4xr1q"]
+[ext_resource type="Script" uid="uid://yn5uleod5o0l" path="res://scenes/games/hurt_box.gd" id="3_4xr1q"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4xr1q"]
+radius = 75.5
+height = 264.0
+
+[sub_resource type="Animation" id="Animation_n7owh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_4xr1q"]
+resource_name = "hit_enemy"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.098121, 0.20009, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.781485, -0.764095, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0250112, 0.101969, 0.12698),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 0.189348, 0.185288, 1), Color(1, 1, 1, 1), Color(0.967024, 0, 0.0979523, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j5hij"]
+_data = {
+&"RESET": SubResource("Animation_n7owh"),
+&"hit_enemy": SubResource("Animation_4xr1q")
+}
+
+[node name="EnemyNPC" type="CharacterBody2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_ocmnj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-2.5, -121)
+shape = SubResource("CapsuleShape2D_4xr1q")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_j5hij")
+}
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
+position = Vector2(0, -120)
+texture = ExtResource("2_4xr1q")
+
+[node name="HurtBox" type="Area2D" parent="Marker2D/Sprite2D"]
+position = Vector2(0, 120)
+collision_layer = 4
+collision_mask = 10
+script = ExtResource("3_4xr1q")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Marker2D/Sprite2D/HurtBox"]
+position = Vector2(-2.5, -121)
+shape = SubResource("CapsuleShape2D_4xr1q")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Marker2D"]
+position = Vector2(-4, -62)
+rotation = -1.4996
+skew = 0.570723
+emitting = false
+amount = 6
+lifetime = 0.3
+one_shot = true
+preprocess = 0.03
+explosiveness = 0.86
+randomness = 0.59
+initial_velocity_min = 686.86
+initial_velocity_max = 686.86
+angular_velocity_min = -509.09
+angular_velocity_max = -392.73
+scale_amount_min = 10.0
+scale_amount_max = 10.0
+
+[connection signal="area_entered" from="Marker2D/Sprite2D/HurtBox" to="." method="_on_hurt_box_area_entered"]

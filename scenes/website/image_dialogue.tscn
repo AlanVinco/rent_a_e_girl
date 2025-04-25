@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://er15oay3ib6c"]
+
+[ext_resource type="Script" uid="uid://defel0v2j583t" path="res://scenes/website/image_dialogue.gd" id="2_u5bp8"]
+
+[node name="Image_dialogue" type="TextureRect"]
+size_flags_vertical = 3
+stretch_mode = 3
+script = ExtResource("2_u5bp8")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

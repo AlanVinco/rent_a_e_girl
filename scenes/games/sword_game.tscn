@@ -1,0 +1,123 @@
+[gd_scene load_steps=11 format=3 uid="uid://b6phknved2a77"]
+
+[ext_resource type="PackedScene" uid="uid://hnbobvvw1ihp" path="res://scenes/games/sword_player.tscn" id="1_4glam"]
+[ext_resource type="Script" uid="uid://dkx6y1f8thc5e" path="res://scenes/games/sword_game.gd" id="1_dd8fj"]
+[ext_resource type="Texture2D" uid="uid://qmamswe8b3gt" path="res://asset/swordGame/space_background.png" id="2_5q6q0"]
+[ext_resource type="Texture2D" uid="uid://ftayv5aiawij" path="res://asset/swordGame/chest1.png" id="3_5q6q0"]
+[ext_resource type="Script" uid="uid://c6shilvpmho44" path="res://scenes/games/sword_move.gd" id="6_j65ts"]
+[ext_resource type="AudioStream" uid="uid://7mv3gdmk5xd" path="res://audio/sound/agregar_dinero.ogg" id="6_mf1ut"]
+[ext_resource type="AudioStream" uid="uid://ctt6ccgt2a8jd" path="res://audio/sound/robar_sonido.mp3" id="7_mf1ut"]
+[ext_resource type="Theme" uid="uid://b47stwiji5ix6" path="res://scenes/website/btn_buy_theme.tres" id="8_0r5nj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5q6q0"]
+size = Vector2(218.5, 198)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_j65ts"]
+b = Vector2(1891, 1)
+
+[node name="SwordGame" type="Node"]
+script = ExtResource("1_dd8fj")
+
+[node name="bg" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5q6q0")
+expand_mode = 1
+
+[node name="Chest" type="TextureRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -99.5
+offset_top = -199.0
+offset_right = 99.5
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("3_5q6q0")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Chest"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.5
+offset_top = -34.5
+offset_right = 35.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.105055, 0.583301, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 70
+text = "$ 0"
+
+[node name="MoneyAlert" type="Label" parent="Chest"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.866834
+anchor_top = 0.258794
+anchor_right = 1.3593
+anchor_bottom = 0.741206
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/font_size = 50
+metadata/_edit_use_anchors_ = true
+
+[node name="chest" type="Area2D" parent="Chest"]
+collision_layer = 8
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chest/chest"]
+position = Vector2(99.25, 97)
+shape = SubResource("RectangleShape2D_5q6q0")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("6_j65ts")
+
+[node name="SwordPlayer" parent="." instance=ExtResource("1_4glam")]
+
+[node name="Spawn1" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawn1"]
+shape = SubResource("SegmentShape2D_j65ts")
+
+[node name="EnemysNode" type="Node" parent="."]
+
+[node name="SpawnTime" type="Timer" parent="."]
+
+[node name="CoinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_mf1ut")
+
+[node name="RobarSonido" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_mf1ut")
+volume_db = -6.559
+
+[node name="RobarSound" type="AudioStreamPlayer" parent="."]
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.846354
+anchor_top = 0.885802
+anchor_right = 0.971354
+anchor_bottom = 0.970679
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("8_0r5nj")
+theme_override_font_sizes/font_size = 40
+text = "txt_end"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="timeout" from="SpawnTime" to="." method="_on_spawn_time_timeout"]

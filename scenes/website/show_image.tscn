@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://cnakltbr1y7e7"]
+
+[ext_resource type="Script" uid="uid://syaqqjyomeyq" path="res://scenes/website/show_image.gd" id="1_qwayh"]
+[ext_resource type="Theme" uid="uid://cgs16mm6y1fmt" path="res://scenes/website/close_button.tres" id="2_ko26i"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ko26i"]
+
+[node name="ShowImage" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_qwayh")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.835294)
+
+[node name="Image" type="TextureRect" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 116.0
+offset_top = 96.0
+offset_right = -130.0
+offset_bottom = -65.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_ko26i")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="btn_close" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.914063
+anchor_top = 0.087963
+anchor_right = 0.952257
+anchor_bottom = 0.123457
+offset_bottom = 19.0
+grow_horizontal = 0
+theme = ExtResource("2_ko26i")
+theme_override_font_sizes/font_size = 30
+text = "X"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="btn_close" to="." method="_on_btn_close_pressed"]

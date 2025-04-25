@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://drb8ix5uydgyf"]
+
+[ext_resource type="Theme" uid="uid://gi6xqihorkpa" path="res://scenes/website/bubble_text.tres" id="1_sknjs"]
+[ext_resource type="Script" uid="uid://bjqd5l6csana" path="res://scenes/website/bubble_text.gd" id="2_i4i5w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sknjs"]
+bg_color = Color(0.482353, 0.278431, 1, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.262745, 0.262745, 0.352941, 1)
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+expand_margin_left = 20.0
+expand_margin_right = 20.0
+
+[sub_resource type="Theme" id="Theme_sknjs"]
+Label/styles/normal = SubResource("StyleBoxFlat_sknjs")
+
+[node name="BubblePlayerText" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 24.0
+grow_horizontal = 2
+theme = ExtResource("1_sknjs")
+script = ExtResource("2_i4i5w")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -109.0
+offset_top = 8.0
+offset_right = -24.0
+offset_bottom = 45.0
+grow_horizontal = 0
+theme = SubResource("Theme_sknjs")
+theme_override_font_sizes/font_size = 25
+text = "Test"
+horizontal_alignment = 1

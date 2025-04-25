@@ -1,0 +1,736 @@
+[gd_scene load_steps=17 format=3 uid="uid://dpppcsletwvma"]
+
+[ext_resource type="Script" uid="uid://c7uyruoevp4yd" path="res://scenes/website/profile.gd" id="1_nmsjo"]
+[ext_resource type="Texture2D" uid="uid://c5qfype7delp2" path="res://asset/icons/avatar_circle_test.png" id="1_qc7ab"]
+[ext_resource type="Texture2D" uid="uid://du1p4qk8833k1" path="res://asset/banners/profile_banner_vip.png" id="2_up1h8"]
+[ext_resource type="StyleBox" uid="uid://bu26s0idkr7ns" path="res://scenes/website/panel_bio.tres" id="4_3f4ig"]
+[ext_resource type="Script" uid="uid://dxypt3itg14vb" path="res://scenes/website/scroll_image.gd" id="4_ld5kt"]
+[ext_resource type="Texture2D" uid="uid://cdy3fni2obwn0" path="res://asset/icons/dolaricon-no_bg.png" id="4_t75ln"]
+[ext_resource type="Texture2D" uid="uid://c284mbks7c86d" path="res://asset/objects/perfume_test.png" id="7_523wj"]
+[ext_resource type="Theme" uid="uid://b47stwiji5ix6" path="res://scenes/website/btn_buy_theme.tres" id="8_6nfab"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1iej"]
+bg_color = Color(0.188235, 0.184314, 0.239216, 1)
+shadow_size = 20
+
+[sub_resource type="Theme" id="Theme_qc7ab"]
+Panel/styles/panel = SubResource("StyleBoxFlat_a1iej")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scylc"]
+bg_color = Color(0.112726, 4.95987e-05, 0.397017, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 10
+
+[sub_resource type="Theme" id="Theme_8i2rs"]
+Panel/styles/panel = SubResource("StyleBoxFlat_scylc")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_up1h8"]
+bg_color = Color(0.12549, 0.12549, 0.168627, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+shadow_size = 10
+
+[sub_resource type="Theme" id="Theme_t75ln"]
+Panel/styles/panel = SubResource("StyleBoxFlat_up1h8")
+
+[sub_resource type="Theme" id="Theme_up1h8"]
+Panel/styles/panel = ExtResource("4_3f4ig")
+
+[sub_resource type="Theme" id="Theme_3f4ig"]
+Panel/styles/panel = ExtResource("4_3f4ig")
+
+[node name="Profile" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nmsjo")
+
+[node name="Navbar" type="Panel" parent="."]
+visible = false
+z_index = 10
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 92.0
+grow_horizontal = 2
+theme = SubResource("Theme_qc7ab")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0745098, 0.0745098, 0.101961, 1)
+
+[node name="Banner" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 92.0
+offset_bottom = 252.0
+grow_horizontal = 2
+texture = ExtResource("2_up1h8")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Avatar" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 71.0
+offset_right = 308.0
+offset_bottom = 275.0
+texture = ExtResource("1_qc7ab")
+expand_mode = 1
+
+[node name="nav_container" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0642361
+anchor_top = 0.276235
+anchor_right = 0.533854
+anchor_bottom = 0.387346
+offset_bottom = 1.52588e-05
+theme_override_constants/separation = 30
+metadata/_edit_use_anchors_ = true
+
+[node name="btn_info" type="Button" parent="nav_container"]
+layout_mode = 2
+theme = ExtResource("8_6nfab")
+theme_override_font_sizes/font_size = 30
+text = "btn_info"
+metadata/_edit_use_anchors_ = true
+
+[node name="btn_album" type="Button" parent="nav_container"]
+layout_mode = 2
+theme = ExtResource("8_6nfab")
+theme_override_font_sizes/font_size = 30
+text = "btn_album"
+metadata/_edit_use_anchors_ = true
+
+[node name="btn_wishlist" type="Button" parent="nav_container"]
+layout_mode = 2
+theme = ExtResource("8_6nfab")
+theme_override_font_sizes/font_size = 30
+text = "btn_wishlist"
+metadata/_edit_use_anchors_ = true
+
+[node name="ordersContainer" type="GridContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.384549
+anchor_top = 0.391975
+anchor_right = 0.619792
+anchor_bottom = 0.964506
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="ordersContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_8i2rs")
+
+[node name="Panel2" type="Panel" parent="ordersContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_8i2rs")
+
+[node name="Panel3" type="Panel" parent="ordersContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_8i2rs")
+
+[node name="Panel4" type="Panel" parent="ordersContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_8i2rs")
+
+[node name="PanelStats" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0685764
+anchor_top = 0.422839
+anchor_right = 0.327257
+anchor_bottom = 0.969136
+grow_vertical = 0
+theme = SubResource("Theme_t75ln")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="PanelStats"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "player_stats"
+
+[node name="PanelBio" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.673611
+anchor_top = 0.41821
+anchor_right = 0.966146
+anchor_bottom = 0.969136
+grow_horizontal = 0
+grow_vertical = 2
+theme = SubResource("Theme_up1h8")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="PanelBio"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "txt_dee_bio"
+
+[node name="btn_close" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.934896
+anchor_top = 0.175926
+anchor_right = 0.966146
+anchor_bottom = 0.253086
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "X"
+metadata/_edit_use_anchors_ = true
+
+[node name="ScrollImage" type="ScrollContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0651042
+anchor_top = 0.45679
+anchor_right = 0.967882
+anchor_bottom = 0.967593
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_ld5kt")
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollImage"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="ScrollImage/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("4_t75ln")
+
+[node name="TextureRect3" type="TextureRect" parent="ScrollImage/HBoxContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("1_qc7ab")
+
+[node name="WishContainer" type="GridContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0677083
+anchor_top = 0.422839
+anchor_right = 0.966146
+anchor_bottom = 0.970679
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel" type="Panel" parent="WishContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_3f4ig")
+
+[node name="TextureRect" type="TextureRect" parent="WishContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0753968
+anchor_top = 0.0751445
+anchor_right = 0.626984
+anchor_bottom = 0.878613
+grow_vertical = 2
+texture = ExtResource("7_523wj")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="WishContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.662698
+anchor_top = 0.410405
+anchor_right = 0.940476
+anchor_bottom = 0.589595
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("8_6nfab")
+theme_override_font_sizes/font_size = 20
+text = "btn_buy"
+metadata/_edit_use_anchors_ = true
+
+[node name="DolarIcon" type="TextureRect" parent="WishContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.611111
+anchor_top = 0.179191
+anchor_right = 0.769841
+anchor_bottom = 0.352601
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("4_t75ln")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="WishContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.761905
+anchor_top = 0.196532
+anchor_right = 0.920635
+anchor_bottom = 0.32948
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "5,00"
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel2" type="Panel" parent="WishContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_3f4ig")
+
+[node name="TextureRect" type="TextureRect" parent="WishContainer/Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0753968
+anchor_top = 0.0751445
+anchor_right = 0.626984
+anchor_bottom = 0.878613
+grow_vertical = 2
+texture = ExtResource("7_523wj")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="WishContainer/Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.662698
+anchor_top = 0.410405
+anchor_right = 0.940476
+anchor_bottom = 0.589595
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("8_6nfab")
+theme_override_font_sizes/font_size = 20
+text = "btn_buy"
+metadata/_edit_use_anchors_ = true
+
+[node name="DolarIcon" type="TextureRect" parent="WishContainer/Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.611111
+anchor_top = 0.179191
+anchor_right = 0.769841
+anchor_bottom = 0.352601
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("4_t75ln")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="WishContainer/Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.761905
+anchor_top = 0.196532
+anchor_right = 0.920635
+anchor_bottom = 0.32948
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "5,00"
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel3" type="Panel" parent="WishContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_3f4ig")
+
+[node name="TextureRect" type="TextureRect" parent="WishContainer/Panel3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0753968
+anchor_top = 0.0751445
+anchor_right = 0.626984
+anchor_bottom = 0.878613
+grow_vertical = 2
+texture = ExtResource("7_523wj")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="WishContainer/Panel3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.662698
+anchor_top = 0.410405
+anchor_right = 0.940476
+anchor_bottom = 0.589595
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("8_6nfab")
+theme_override_font_sizes/font_size = 20
+text = "btn_buy"
+metadata/_edit_use_anchors_ = true
+
+[node name="DolarIcon" type="TextureRect" parent="WishContainer/Panel3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.611111
+anchor_top = 0.179191
+anchor_right = 0.769841
+anchor_bottom = 0.352601
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("4_t75ln")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="WishContainer/Panel3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.761905
+anchor_top = 0.196532
+anchor_right = 0.920635
+anchor_bottom = 0.32948
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "5,00"
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel4" type="Panel" parent="WishContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_3f4ig")
+
+[node name="TextureRect" type="TextureRect" parent="WishContainer/Panel4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0753968
+anchor_top = 0.0751445
+anchor_right = 0.626984
+anchor_bottom = 0.878613
+grow_vertical = 2
+texture = ExtResource("7_523wj")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="WishContainer/Panel4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.662698
+anchor_top = 0.410405
+anchor_right = 0.940476
+anchor_bottom = 0.589595
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("8_6nfab")
+theme_override_font_sizes/font_size = 20
+text = "btn_buy"
+metadata/_edit_use_anchors_ = true
+
+[node name="DolarIcon" type="TextureRect" parent="WishContainer/Panel4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.611111
+anchor_top = 0.179191
+anchor_right = 0.769841
+anchor_bottom = 0.352601
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("4_t75ln")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="WishContainer/Panel4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.761905
+anchor_top = 0.196532
+anchor_right = 0.920635
+anchor_bottom = 0.32948
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "5,00"
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel5" type="Panel" parent="WishContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_3f4ig")
+
+[node name="TextureRect" type="TextureRect" parent="WishContainer/Panel5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0753968
+anchor_top = 0.0751445
+anchor_right = 0.626984
+anchor_bottom = 0.878613
+grow_vertical = 2
+texture = ExtResource("7_523wj")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="WishContainer/Panel5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.662698
+anchor_top = 0.410405
+anchor_right = 0.940476
+anchor_bottom = 0.589595
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("8_6nfab")
+theme_override_font_sizes/font_size = 20
+text = "btn_buy"
+metadata/_edit_use_anchors_ = true
+
+[node name="DolarIcon" type="TextureRect" parent="WishContainer/Panel5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.611111
+anchor_top = 0.179191
+anchor_right = 0.769841
+anchor_bottom = 0.352601
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("4_t75ln")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="WishContainer/Panel5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.761905
+anchor_top = 0.196532
+anchor_right = 0.920635
+anchor_bottom = 0.32948
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "5,00"
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel6" type="Panel" parent="WishContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_3f4ig")
+
+[node name="TextureRect" type="TextureRect" parent="WishContainer/Panel6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0753968
+anchor_top = 0.0751445
+anchor_right = 0.626984
+anchor_bottom = 0.878613
+grow_vertical = 2
+texture = ExtResource("7_523wj")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="WishContainer/Panel6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.662698
+anchor_top = 0.410405
+anchor_right = 0.940476
+anchor_bottom = 0.589595
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("8_6nfab")
+theme_override_font_sizes/font_size = 20
+text = "btn_buy"
+metadata/_edit_use_anchors_ = true
+
+[node name="DolarIcon" type="TextureRect" parent="WishContainer/Panel6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.611111
+anchor_top = 0.179191
+anchor_right = 0.769841
+anchor_bottom = 0.352601
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("4_t75ln")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="WishContainer/Panel6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.761905
+anchor_top = 0.196532
+anchor_right = 0.920635
+anchor_bottom = 0.32948
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "5,00"
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel7" type="Panel" parent="WishContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_3f4ig")
+
+[node name="TextureRect" type="TextureRect" parent="WishContainer/Panel7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0753968
+anchor_top = 0.0751445
+anchor_right = 0.626984
+anchor_bottom = 0.878613
+grow_vertical = 2
+texture = ExtResource("7_523wj")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="WishContainer/Panel7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.662698
+anchor_top = 0.410405
+anchor_right = 0.940476
+anchor_bottom = 0.589595
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("8_6nfab")
+theme_override_font_sizes/font_size = 20
+text = "btn_buy"
+metadata/_edit_use_anchors_ = true
+
+[node name="DolarIcon" type="TextureRect" parent="WishContainer/Panel7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.611111
+anchor_top = 0.179191
+anchor_right = 0.769841
+anchor_bottom = 0.352601
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("4_t75ln")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="WishContainer/Panel7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.761905
+anchor_top = 0.196532
+anchor_right = 0.920635
+anchor_bottom = 0.32948
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "5,00"
+metadata/_edit_use_anchors_ = true
+
+[node name="Panel8" type="Panel" parent="WishContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_3f4ig")
+
+[node name="TextureRect" type="TextureRect" parent="WishContainer/Panel8"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0753968
+anchor_top = 0.0751445
+anchor_right = 0.626984
+anchor_bottom = 0.878613
+grow_vertical = 2
+texture = ExtResource("7_523wj")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="WishContainer/Panel8"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.662698
+anchor_top = 0.410405
+anchor_right = 0.940476
+anchor_bottom = 0.589595
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("8_6nfab")
+theme_override_font_sizes/font_size = 20
+text = "btn_buy"
+metadata/_edit_use_anchors_ = true
+
+[node name="DolarIcon" type="TextureRect" parent="WishContainer/Panel8"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.611111
+anchor_top = 0.179191
+anchor_right = 0.769841
+anchor_bottom = 0.352601
+grow_horizontal = 0
+grow_vertical = 2
+texture = ExtResource("4_t75ln")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="WishContainer/Panel8"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.761905
+anchor_top = 0.196532
+anchor_right = 0.920635
+anchor_bottom = 0.32948
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "5,00"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="nav_container/btn_info" to="." method="_on_btn_info_pressed"]
+[connection signal="pressed" from="nav_container/btn_album" to="." method="_on_btn_album_pressed"]
+[connection signal="pressed" from="nav_container/btn_wishlist" to="." method="_on_btn_wishlist_pressed"]
+[connection signal="pressed" from="btn_close" to="." method="_on_btn_close_pressed"]

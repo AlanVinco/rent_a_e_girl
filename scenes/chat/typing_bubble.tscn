@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://blpc5x2g5s4iw"]
+
+[ext_resource type="Script" uid="uid://bx2doimbvnae" path="res://scenes/chat/typing_bubble.gd" id="1_iop7f"]
+
+[node name="TypingBubble" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_iop7f")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Dot1" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "."
+
+[node name="Dot2" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "."
+
+[node name="Dot3" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "."
