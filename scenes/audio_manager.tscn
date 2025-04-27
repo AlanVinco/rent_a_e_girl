@@ -1,14 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjui6m0481x6a"]
+[gd_scene load_steps=6 format=3 uid="uid://cjui6m0481x6a"]
 
 [ext_resource type="Script" uid="uid://rlx7fa4w60np" path="res://scenes/sounds.gd" id="1_liach"]
 [ext_resource type="AudioStream" uid="uid://bl2f8brm2jriv" path="res://audio/sound/Typing sound.mp3" id="2_liach"]
 [ext_resource type="AudioStream" uid="uid://cbg7nedfofu7r" path="res://audio/music/game_money_theme.ogg" id="3_3asnw"]
+[ext_resource type="AudioStream" uid="uid://mbg08gklmvid" path="res://audio/music/lofi_1.ogg" id="4_m6ggh"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_m6ggh"]
-clip_count = 1
-clip_0/name = &"MONEY_GAME_THEME"
-clip_0/stream = ExtResource("3_3asnw")
+clip_count = 2
+clip_0/name = &"lofi_1"
+clip_0/stream = ExtResource("4_m6ggh")
 clip_0/auto_advance = 0
+clip_1/name = &"MONEY_GAME_THEME"
+clip_1/stream = ExtResource("3_3asnw")
+clip_1/auto_advance = 0
 
 [node name="AudioManager" type="Node"]
 script = ExtResource("1_liach")

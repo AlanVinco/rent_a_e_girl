@@ -1,17 +1,22 @@
-[gd_scene load_steps=32 format=3 uid="uid://d1iu0unqhd8py"]
+[gd_scene load_steps=38 format=3 uid="uid://d1iu0unqhd8py"]
 
 [ext_resource type="Texture2D" uid="uid://dwhds2m8sjins" path="res://asset/icons/start.png" id="1_oy4ei"]
 [ext_resource type="Script" uid="uid://bhy0jjhsjsb0d" path="res://scenes/website/website.gd" id="1_voifu"]
 [ext_resource type="Texture2D" uid="uid://cdy3fni2obwn0" path="res://asset/icons/dolaricon-no_bg.png" id="2_52y3t"]
 [ext_resource type="StyleBox" uid="uid://txq50w4ug4kr" path="res://scenes/website/play_button.tres" id="2_a1iej"]
 [ext_resource type="Texture2D" uid="uid://0pnv7xcfxf1" path="res://asset/logo/logo_v1.png" id="2_p4l0u"]
-[ext_resource type="Texture2D" uid="uid://c5qfype7delp2" path="res://asset/icons/avatar_circle_test.png" id="6_7tflo"]
+[ext_resource type="Texture2D" uid="uid://mhroecx20obe" path="res://asset/art/Dee/dee_avatar1.png" id="5_i7b33"]
 [ext_resource type="PackedScene" uid="uid://dpppcsletwvma" path="res://scenes/website/profile.tscn" id="6_fwqxy"]
+[ext_resource type="Texture2D" uid="uid://bfixc5o4yn6oj" path="res://asset/art/Mekari/avatar_1.png" id="7_i7b33"]
+[ext_resource type="Texture2D" uid="uid://dwrxw0homgaeu" path="res://asset/art/Mia/avatar_2.png" id="8_i7b33"]
 [ext_resource type="Theme" uid="uid://cgs16mm6y1fmt" path="res://scenes/website/close_button.tres" id="9_3g7pv"]
 [ext_resource type="Texture2D" uid="uid://dc17088d861o6" path="res://asset/art/Dee/ArikaSifukuTere.png" id="10_ug5wh"]
 [ext_resource type="StyleBox" uid="uid://8bs1kdmwxwfb" path="res://scenes/website/chatButton.tres" id="10_vpc02"]
+[ext_resource type="Texture2D" uid="uid://cxj5qgg4x1ukv" path="res://asset/icons/dee_icon_circle.png" id="10_x35vn"]
 [ext_resource type="PackedScene" uid="uid://dnsb5ul6teb51" path="res://scenes/website/bubble_text.tscn" id="11_23o76"]
+[ext_resource type="Texture2D" uid="uid://brfro73tdgnm5" path="res://asset/icons/mekari_icon_circle.png" id="11_kxu0i"]
 [ext_resource type="PackedScene" uid="uid://dmq0o3tk3kxyx" path="res://scenes/dialogue_manager.tscn" id="12_lfsmy"]
+[ext_resource type="Texture2D" uid="uid://cq0xyryl1y8at" path="res://asset/icons/mia_icon_circle.png" id="12_py1s5"]
 [ext_resource type="PackedScene" uid="uid://blpc5x2g5s4iw" path="res://scenes/chat/typing_bubble.tscn" id="13_ncn7w"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tflo"]
@@ -20,6 +25,16 @@ shadow_size = 20
 
 [sub_resource type="Theme" id="Theme_oy4ei"]
 Panel/styles/panel = SubResource("StyleBoxFlat_7tflo")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxu0i"]
+bg_color = Color(0.730006, 0, 0.333222, 1)
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[sub_resource type="Theme" id="Theme_py1s5"]
+Button/styles/normal = SubResource("StyleBoxFlat_kxu0i")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ewfx"]
 bg_color = Color(0.188235, 0.184314, 0.239216, 1)
@@ -42,8 +57,6 @@ corner_radius_bottom_left = 20
 
 [sub_resource type="Theme" id="Theme_hcd1l"]
 Panel/styles/panel = SubResource("StyleBoxFlat_hcd1l")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ko26i"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oy4ei"]
 bg_color = Color(0.552941, 0.407843, 0.94902, 1)
@@ -153,6 +166,18 @@ grow_vertical = 2
 texture = ExtResource("2_p4l0u")
 expand_mode = 1
 
+[node name="Close" type="Button" parent="Navbar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.947049
+anchor_top = 0.271739
+anchor_right = 0.979167
+anchor_bottom = 0.597826
+grow_horizontal = 0
+theme = SubResource("Theme_py1s5")
+text = "x"
+metadata/_edit_use_anchors_ = true
+
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -212,7 +237,7 @@ offset_bottom = 21.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "4.8(556)"
+text = "4.9(556)"
 
 [node name="DolarIcon" type="TextureRect" parent="HBoxContainer/Card/BotInfo"]
 layout_mode = 1
@@ -238,28 +263,29 @@ offset_right = 84.0
 offset_bottom = 12.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
-text = "5"
+text = "10"
 
 [node name="Cost2" type="Label" parent="HBoxContainer/Card/BotInfo"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 102.0
+offset_left = 130.0
 offset_top = -7.5
-offset_right = 131.0
+offset_right = 159.0
 offset_bottom = 20.5
 grow_vertical = 2
 theme_override_font_sizes/font_size = 20
 text = ",00"
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Card"]
+[node name="DeePicture" type="TextureRect" parent="HBoxContainer/Card"]
 layout_mode = 1
 offset_right = 384.0
 offset_bottom = 415.0
 scale = Vector2(0.5, 0.5)
-texture = SubResource("CompressedTexture2D_ko26i")
+texture = ExtResource("5_i7b33")
 expand_mode = 5
+stretch_mode = 6
 
 [node name="PlayDee" type="Button" parent="HBoxContainer/Card"]
 layout_mode = 1
@@ -347,7 +373,7 @@ offset_bottom = 21.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "4.8(556)"
+text = "3.5(169)"
 
 [node name="DolarIcon" type="TextureRect" parent="HBoxContainer/Card2/BotInfo"]
 layout_mode = 1
@@ -388,15 +414,16 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 20
 text = ",00"
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Card2"]
+[node name="MekariImage1" type="TextureRect" parent="HBoxContainer/Card2"]
 layout_mode = 1
 offset_right = 384.0
 offset_bottom = 415.0
 scale = Vector2(0.5, 0.5)
-texture = SubResource("CompressedTexture2D_ko26i")
+texture = ExtResource("7_i7b33")
 expand_mode = 5
+stretch_mode = 6
 
-[node name="Play" type="Button" parent="HBoxContainer/Card2"]
+[node name="PlayMekari" type="Button" parent="HBoxContainer/Card2"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -422,7 +449,7 @@ offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
-text = "Dee ♡"
+text = "Mekari ♡"
 
 [node name="Label2" type="Label" parent="HBoxContainer/Card2"]
 layout_mode = 1
@@ -459,9 +486,9 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -192.0
+offset_left = -204.0
 offset_top = -20.0
-offset_right = -152.0
+offset_right = -164.0
 offset_bottom = 20.0
 grow_horizontal = 0
 grow_vertical = 2
@@ -482,7 +509,7 @@ offset_bottom = 21.0
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 30
-text = "4.8(556)"
+text = "5.0(1532)"
 
 [node name="DolarIcon" type="TextureRect" parent="HBoxContainer/Card3/BotInfo"]
 layout_mode = 1
@@ -508,30 +535,31 @@ offset_right = 84.0
 offset_bottom = 12.0
 grow_vertical = 2
 theme_override_font_sizes/font_size = 50
-text = "5"
+text = "50"
 
 [node name="Cost2" type="Label" parent="HBoxContainer/Card3/BotInfo"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 102.0
+offset_left = 129.0
 offset_top = -7.5
-offset_right = 131.0
+offset_right = 158.0
 offset_bottom = 20.5
 grow_vertical = 2
 theme_override_font_sizes/font_size = 20
 text = ",00"
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Card3"]
+[node name="IdolAvatar" type="TextureRect" parent="HBoxContainer/Card3"]
 layout_mode = 1
 offset_right = 384.0
 offset_bottom = 415.0
 scale = Vector2(0.5, 0.5)
-texture = SubResource("CompressedTexture2D_ko26i")
+texture = ExtResource("8_i7b33")
 expand_mode = 5
+stretch_mode = 6
 
-[node name="Play" type="Button" parent="HBoxContainer/Card3"]
+[node name="PlayMia" type="Button" parent="HBoxContainer/Card3"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -557,7 +585,7 @@ offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
-text = "Dee ♡"
+text = "Idol Mia ♡"
 
 [node name="Label2" type="Label" parent="HBoxContainer/Card3"]
 layout_mode = 1
@@ -570,26 +598,6 @@ offset_right = 55.0
 offset_bottom = 11.5
 grow_vertical = 2
 text = "txt_dee_short_info"
-
-[node name="SideBar4" type="ColorRect" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.883681
-anchor_right = 1.88368
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.188235, 0.184314, 0.239216, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="Button" type="Button" parent="SideBar4"]
-layout_mode = 0
-offset_left = 42.0
-offset_top = 113.0
-offset_right = 50.0
-offset_bottom = 121.0
-text = "click"
 
 [node name="Profile" parent="." instance=ExtResource("6_fwqxy")]
 visible = false
@@ -614,7 +622,7 @@ anchor_right = 0.472222
 anchor_bottom = 0.21142
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_7tflo")
+texture = ExtResource("10_x35vn")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -640,15 +648,20 @@ offset_left = -143.0
 offset_bottom = 647.0
 grow_horizontal = 0
 
-[node name="AvatarCircleTest" type="Sprite2D" parent="SideBar/VBoxContainer"]
+[node name="DeeAvatarCircle" type="Sprite2D" parent="SideBar/VBoxContainer"]
 position = Vector2(91, 203)
 scale = Vector2(0.372222, 0.372222)
-texture = ExtResource("6_7tflo")
+texture = ExtResource("10_x35vn")
 
-[node name="AvatarCircleTest2" type="Sprite2D" parent="SideBar/VBoxContainer"]
+[node name="MekariAvatarCircle" type="Sprite2D" parent="SideBar/VBoxContainer"]
 position = Vector2(91, 303)
 scale = Vector2(0.372222, 0.372222)
-texture = ExtResource("6_7tflo")
+texture = ExtResource("11_kxu0i")
+
+[node name="MiaAvatarCircle" type="Sprite2D" parent="SideBar/VBoxContainer"]
+position = Vector2(91, 404)
+scale = Vector2(0.372222, 0.372222)
+texture = ExtResource("12_py1s5")
 
 [node name="Button" type="Button" parent="SideBar"]
 z_index = 9
@@ -660,15 +673,6 @@ offset_bottom = 144.0
 theme = ExtResource("9_3g7pv")
 text = "→
 "
-
-[node name="LineRect" type="ColorRect" parent="SideBar"]
-visible = false
-layout_mode = 0
-offset_left = 1001.0
-offset_top = 120.0
-offset_right = 1002.0
-offset_bottom = 174.0
-color = Color(0.25098, 0.25098, 0.333333, 1)
 
 [node name="ChatButton" type="Button" parent="SideBar"]
 layout_mode = 1
@@ -770,5 +774,11 @@ grow_vertical = 2
 
 [node name="Sounds" type="AudioStreamPlayer" parent="."]
 
+[connection signal="pressed" from="Navbar/Close" to="." method="_on_close_pressed"]
+[connection signal="gui_input" from="HBoxContainer/Card/DeePicture" to="." method="_on_dee_picture_gui_input"]
 [connection signal="pressed" from="HBoxContainer/Card/PlayDee" to="." method="_on_play_dee_pressed"]
+[connection signal="gui_input" from="HBoxContainer/Card2/MekariImage1" to="." method="_on_mekari_image_1_gui_input"]
+[connection signal="pressed" from="HBoxContainer/Card2/PlayMekari" to="." method="_on_play_mekari_pressed"]
+[connection signal="gui_input" from="HBoxContainer/Card3/IdolAvatar" to="." method="_on_idol_avatar_gui_input"]
+[connection signal="pressed" from="HBoxContainer/Card3/PlayMia" to="." method="_on_play_mia_pressed"]
 [connection signal="pressed" from="SideBar/ChatButton" to="." method="_on_chat_button_pressed"]

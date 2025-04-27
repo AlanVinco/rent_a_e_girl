@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3l2m0gdjwogl"]
+
+[ext_resource type="Script" uid="uid://dletavvd8x4jf" path="res://scenes/text/text.gd" id="1_7gqk1"]
+[ext_resource type="PackedScene" uid="uid://7nqbkkqip1b0" path="res://scenes/window_dialogue_final.tscn" id="2_01ix3"]
+
+[node name="TEXT" type="Node2D"]
+script = ExtResource("1_7gqk1")
+TextScene = ExtResource("2_01ix3")

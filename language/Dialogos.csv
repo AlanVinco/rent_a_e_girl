@@ -10,3 +10,7 @@ escena_2_1,escena_2_1,Bot,feliz,bot_sonrie.png,¡A mí también me gusta el rojo
 escena_2_2,escena_2_2,Bot,neutral,bot.png,El blanco es un color pacífico.,White is a peaceful color.,Ok,Ok,escena_2_fin,---,2
 escena_2_3,escena_2_3,Bot,enojado,bot_enojado.png,¡¿Negro?! No me gusta ese color.,Black?! I don't like that color.,Perdón,Sorry,escena_2_fin,---,2
 escena_2_fin,escena_2_fin,Bot,neutral,bot.png,Fin del diálogo.,End of dialogue.,,,,---,2
+,,,,,,,,,,,
+text_txt1,TEST1,LISA,NORMAL,bot.png,Hola soy goku,Hello,,,,,2
+text_txt2,TEST1,LISA,NORMAL,bot.png, y muchos me llaman staren por que soy muy feliz al vivir aqui,,,,,,2
+text_txt3,TEST1,LISA,NORMAL,bot.png,vive o muere bajo la cuchilla ,,,,,,2

@@ -1,10 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://b6phknved2a77"]
+[gd_scene load_steps=10 format=3 uid="uid://b6phknved2a77"]
 
 [ext_resource type="PackedScene" uid="uid://hnbobvvw1ihp" path="res://scenes/games/sword_player.tscn" id="1_4glam"]
 [ext_resource type="Script" uid="uid://dkx6y1f8thc5e" path="res://scenes/games/sword_game.gd" id="1_dd8fj"]
 [ext_resource type="Texture2D" uid="uid://qmamswe8b3gt" path="res://asset/swordGame/space_background.png" id="2_5q6q0"]
 [ext_resource type="Texture2D" uid="uid://ftayv5aiawij" path="res://asset/swordGame/chest1.png" id="3_5q6q0"]
-[ext_resource type="Script" uid="uid://c6shilvpmho44" path="res://scenes/games/sword_move.gd" id="6_j65ts"]
 [ext_resource type="AudioStream" uid="uid://7mv3gdmk5xd" path="res://audio/sound/agregar_dinero.ogg" id="6_mf1ut"]
 [ext_resource type="AudioStream" uid="uid://ctt6ccgt2a8jd" path="res://audio/sound/robar_sonido.mp3" id="7_mf1ut"]
 [ext_resource type="Theme" uid="uid://b47stwiji5ix6" path="res://scenes/website/btn_buy_theme.tres" id="8_0r5nj"]
@@ -84,9 +83,6 @@ collision_mask = 4
 position = Vector2(99.25, 97)
 shape = SubResource("RectangleShape2D_5q6q0")
 
-[node name="Player" type="CharacterBody2D" parent="."]
-script = ExtResource("6_j65ts")
-
 [node name="SwordPlayer" parent="." instance=ExtResource("1_4glam")]
 
 [node name="Spawn1" type="Area2D" parent="."]
@@ -121,3 +117,4 @@ text = "txt_end"
 metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="SpawnTime" to="." method="_on_spawn_time_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

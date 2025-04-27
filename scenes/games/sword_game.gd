@@ -30,7 +30,6 @@ func _process(delta):
 
 func _ready():
 	await get_tree().process_frame  # Espera 1 frame por seguridadnew()
-	AudioManager.music_player.play()
 	start_game()
 
 func get_random_position():
@@ -77,6 +76,7 @@ func _on_spawn_time_timeout() -> void:
 	spawn_time.wait_time = timeOleadas
 
 func start_game():
+	AudioManager.start_song("MONEY_GAME_THEME")
 	spawn_time.start()
 	spawn_time.wait_time = 10
 
@@ -122,3 +122,7 @@ func show_money_alert_reduce(amount, position):
 	money_alert.visible = false
 	money_alert.modulate.a = 1  # Restaurar opacidad
 	#money_alert.queue_free()
+
+
+func _on_button_pressed() -> void:
+	GlobalStats.change_scene_async("res://scenes/desktop/desktop.tscn")

@@ -92,6 +92,26 @@ offset_bottom = 275.0
 texture = ExtResource("1_qc7ab")
 expand_mode = 1
 
+[node name="VoiceBtn" type="Button" parent="."]
+layout_mode = 0
+offset_left = 318.0
+offset_top = 118.0
+offset_right = 343.0
+offset_bottom = 160.0
+theme = ExtResource("8_6nfab")
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 30
+text = "♫"
+
+[node name="LabelUsername" type="Label" parent="."]
+layout_mode = 0
+offset_left = 311.0
+offset_top = 153.0
+offset_right = 665.0
+offset_bottom = 222.0
+theme_override_font_sizes/font_size = 50
+text = "txt_user_name"
+
 [node name="nav_container" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -730,6 +750,10 @@ theme_override_font_sizes/font_size = 30
 text = "5,00"
 metadata/_edit_use_anchors_ = true
 
+[node name="E-girl-voice" type="AudioStreamPlayer" parent="."]
+bus = &"voices"
+
+[connection signal="pressed" from="VoiceBtn" to="." method="_on_voice_btn_pressed"]
 [connection signal="pressed" from="nav_container/btn_info" to="." method="_on_btn_info_pressed"]
 [connection signal="pressed" from="nav_container/btn_album" to="." method="_on_btn_album_pressed"]
 [connection signal="pressed" from="nav_container/btn_wishlist" to="." method="_on_btn_wishlist_pressed"]

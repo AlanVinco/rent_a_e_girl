@@ -1,0 +1,183 @@
+[gd_scene load_steps=11 format=3 uid="uid://5mo0843usyf8"]
+
+[ext_resource type="Texture2D" uid="uid://dp5i2hbp47s03" path="res://asset/pc/wallpaper.png" id="1_75vvj"]
+[ext_resource type="Script" uid="uid://ky6jfxthknv4" path="res://scenes/desktop/desktop.gd" id="1_rmtxi"]
+[ext_resource type="Texture2D" uid="uid://comdnofasknbf" path="res://asset/pc/sword_game_icon.png" id="3_13veq"]
+[ext_resource type="Texture2D" uid="uid://dq2c2re7ia6qo" path="res://asset/pc/direct_access.png" id="4_06q4v"]
+[ext_resource type="Texture2D" uid="uid://0pnv7xcfxf1" path="res://asset/logo/logo_v1.png" id="5_46iw5"]
+[ext_resource type="Texture2D" uid="uid://cddhi3fvpf03g" path="res://asset/icons/file.png" id="6_hxdtg"]
+[ext_resource type="AudioStream" uid="uid://wbthwbscagam" path="res://audio/sound/pc_sounds.mp3" id="7_73eyv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_46iw5"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 0.607843)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hxdtg"]
+
+[sub_resource type="Theme" id="Theme_73eyv"]
+Button/styles/hover = SubResource("StyleBoxFlat_46iw5")
+Button/styles/normal = SubResource("StyleBoxEmpty_hxdtg")
+
+[node name="Desktop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rmtxi")
+
+[node name="wallpaper" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_75vvj")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.147569
+anchor_top = 0.388889
+anchor_right = 0.344618
+anchor_bottom = 0.453704
+theme_override_font_sizes/font_size = 25
+text = "Defends money"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.482639
+anchor_top = 0.621914
+anchor_right = 0.530382
+anchor_bottom = 0.686728
+theme_override_font_sizes/font_size = 25
+text = "Web"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.263021
+anchor_top = 0.837963
+anchor_right = 0.310764
+anchor_bottom = 0.902778
+theme_override_font_sizes/font_size = 25
+text = "Files"
+metadata/_edit_use_anchors_ = true
+
+[node name="SwordGameIcon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.138889
+anchor_top = 0.259259
+anchor_right = 0.268229
+anchor_bottom = 0.395062
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_13veq")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="accses" type="TextureRect" parent="SwordGameIcon"]
+layout_mode = 0
+anchor_left = 0.308725
+anchor_top = 0.556818
+anchor_right = 0.422819
+anchor_bottom = 0.75
+texture = ExtResource("4_06q4v")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="swordGameButton" type="Button" parent="SwordGameIcon"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0671141
+anchor_top = 0.0340909
+anchor_right = 0.926175
+anchor_bottom = 0.943182
+theme = SubResource("Theme_73eyv")
+metadata/_edit_use_anchors_ = true
+
+[node name="Web" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.4375
+anchor_top = 0.501543
+anchor_right = 0.56684
+anchor_bottom = 0.637346
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_46iw5")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="accses" type="TextureRect" parent="Web"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.181208
+anchor_top = 0.5
+anchor_right = 0.295302
+anchor_bottom = 0.693182
+texture = ExtResource("4_06q4v")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="WebButton" type="Button" parent="Web"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0469799
+anchor_right = 0.90604
+anchor_bottom = 0.909091
+theme = SubResource("Theme_73eyv")
+metadata/_edit_use_anchors_ = true
+
+[node name="File" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.216146
+anchor_top = 0.70679
+anchor_right = 0.345486
+anchor_bottom = 0.842593
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_hxdtg")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="accses" type="TextureRect" parent="File"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.181208
+anchor_top = 0.5
+anchor_right = 0.295302
+anchor_bottom = 0.693182
+texture = ExtResource("4_06q4v")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="WebButton" type="Button" parent="File"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0469799
+anchor_right = 0.90604
+anchor_bottom = 0.909091
+theme = SubResource("Theme_73eyv")
+metadata/_edit_use_anchors_ = true
+
+[node name="PCSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_73eyv")
+autoplay = true
+parameters/looping = true
+
+[connection signal="gui_input" from="SwordGameIcon" to="." method="_on_sword_game_icon_gui_input"]
+[connection signal="pressed" from="SwordGameIcon/swordGameButton" to="." method="_on_sword_game_button_pressed"]
+[connection signal="pressed" from="Web/WebButton" to="." method="_on_web_pressed"]
+[connection signal="pressed" from="File/WebButton" to="." method="_on_web_button_pressed"]

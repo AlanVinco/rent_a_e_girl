@@ -15,11 +15,7 @@ var mouse_pos
 var angle_deg
 
 func _process(delta):
-	angle_deg = sword.global_rotation * 180 / PI
-	angle_deg = fmod(angle_deg + 180.0, 360.0) - 180.0
-	#print("Ángulo normalizado en grados: ", angle_deg)
-
-
+	# Obtener la posición del mouse en el viewport
 	mouse_pos = get_viewport().get_mouse_position()
 
 	# Cálculo base: posición objetivo de la espada
@@ -31,12 +27,21 @@ func _process(delta):
 	
 	# Rotación natural hacia el mouse
 	sword.look_at(mouse_pos)
-	shadow.position = sword.position + Vector2(0,50)
+	sword.rotation = wrapf(sword.rotation, -PI, PI)  # Normaliza la rotación aquí
+	shadow.position = sword.position + Vector2(0, 50)
+
 	# Escalado para girar el sprite verticalmente
 	if mouse_pos.x < global_position.x:
 		sword.scale.y = -1.0
 	else:
 		sword.scale.y = 1.0
+	
+	# Actualiza la dirección del raycast
+	var mouse_direction = (get_global_mouse_position() - sword.global_position).normalized()
+
+	# Actualiza la posición y la dirección del RayCast2D
+	#ray_cast_2d.position = sword.position
+	#ray_cast_2d.rotation = mouse_direction.angle()  # Asegura que el raycast apunte al mouse
 
 	# Tiempo de flotación (solo una vez por frame)
 	float_time += delta
@@ -49,22 +54,24 @@ func _unhandled_input(event):
 func _attack():
 	can_attack = false
 	slash_sound.stream = load("res://audio/sound/slice.mp3")
-	# Reflejar visualmente la espada y reproducir la misma animación
-	if mouse_pos.x < global_position.x:
-		animation_player.play("slash_with_trail_left")
-	else:
-		animation_player.play("slash_with_trail")
 
+	# Reflejar visualmente la espada y reproducir la misma animación
+	var normalized_rotation = wrapf(sword.rotation, -PI, PI)
+
+	if normalized_rotation > 0:
+		animation_player.play("slash_with_trail")
+	else:
+		animation_player.play("slash_with_trail_left")
 
 	# Detección de golpes
 	for body in hit_area.get_overlapping_bodies():
 		if body.has_method("on_hit_by_sword"):
 			slash_sound.stream = load("res://audio/sound/slice-blood.mp3")
 			body.on_hit_by_sword(global_position, damage)
-	
+
 	slash_sound.pitch_scale = randf_range(1.0, 2.0)
-	print(slash_sound.pitch_scale)
 	slash_sound.play()
-	
+
+	# Temporizador para el cooldown
 	await get_tree().create_timer(attack_cooldown).timeout
 	can_attack = true

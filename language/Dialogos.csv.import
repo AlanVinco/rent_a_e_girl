@@ -3,11 +3,13 @@
 importer="csv_translation"
 type="Translation"
 uid="uid://cgofr2e1tqmgb"
-valid=false
 
 [deps]
 
+files=["res://language/Dialogos.escena.translation", "res://language/Dialogos.personaje.translation", "res://language/Dialogos.emocion.translation", "res://language/Dialogos.image.translation", "res://language/Dialogos.esp.translation", "res://language/Dialogos.en.translation", "res://language/Dialogos.respuestas.translation", "res://language/Dialogos.respuestas.translation", "res://language/Dialogos.siguientes.translation", "res://language/Dialogos.efectos.translation", "res://language/Dialogos.tiempo.translation"]
+
 source_file="res://language/Dialogos.csv"
+dest_files=["res://language/Dialogos.escena.translation", "res://language/Dialogos.personaje.translation", "res://language/Dialogos.emocion.translation", "res://language/Dialogos.image.translation", "res://language/Dialogos.esp.translation", "res://language/Dialogos.en.translation", "res://language/Dialogos.respuestas.translation", "res://language/Dialogos.respuestas.translation", "res://language/Dialogos.siguientes.translation", "res://language/Dialogos.efectos.translation", "res://language/Dialogos.tiempo.translation"]
 
 [params]
 

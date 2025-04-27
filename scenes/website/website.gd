@@ -16,6 +16,8 @@ signal dialogue_finished
 @onready var typing_bubble: Control = $SideBar/TypingBubble
 @onready var options_container = $SideBar/OptionsContainer
 
+@onready var chat_messages: Panel = $SideBar/ChatMessages
+@onready var avatar_image: TextureRect = $SideBar/AvatarImage
 
 var is_open := true
 var collapsed_width := 100  # Solo íconos
@@ -28,17 +30,14 @@ var animation_duration := 0.3
 @export var boolChatUsername = true
 
 func _ready():
-	# Al iniciar solo mostramos los íconos
-	#sidebar.size.x = collapsed_width
-	toggle_button.text = "→"
+	AudioManager.stop_music()
+	toggle_button.text = "X"
 	start_chat(sceneName)
-	#create_bubble_text("prueba")
-	#create_bubble_image("res://asset/art/Dee/ArikaSifukuTere.png")
-	#create_bubble_text("prueba")
 
-	# Conecta el botón de toggle
+	# Conecta el botón de toggle de cerrar y abrir
 	toggle_button.pressed.connect(_toggle_sidebar)
 
+##SIDE BAR
 func _toggle_sidebar():
 	is_open = !is_open
 
@@ -56,10 +55,17 @@ func _toggle_sidebar():
 		# Volver a mostrar solo los íconos
 		tween.tween_property(sidebar, "size:x", collapsed_width, animation_duration)
 		toggle_button.text = "→"
+		
+	hide_sidebar_ements(is_open)
 
-func _on_play_dee_pressed() -> void:
-	profile.visible = true
-
+func hide_sidebar_ements(value):
+	chat_messages.visible = value
+	chat_button.visible = value
+	CHATusername.visible = value
+	options_container.visible = value
+	avatar_image.visible = value
+	boolChatUsername = value
+	
 ##CHAT
 func create_bubble_player_text(dialogue):
 	var buble_text_scene = preload("res://scenes/website/bubble_player_text.tscn")
@@ -165,3 +171,32 @@ func start_chat(sceneName):
 func end_chat():
 	emit_signal("dialogue_finished")
 	chat_button.disabled = true
+
+#CLICK IMAGE 
+
+func _on_dee_picture_gui_input(event: InputEvent) -> void:
+	if event.is_action("left_click"):
+		ShowImage.get_path_by_rect($HBoxContainer/Card/DeePicture)
+	
+func _on_mekari_image_1_gui_input(event: InputEvent) -> void:
+	if event.is_action("left_click"):
+		ShowImage.get_path_by_rect($HBoxContainer/Card2/MekariImage1)
+		
+func _on_idol_avatar_gui_input(event: InputEvent) -> void:
+	if event.is_action("left_click"):
+		ShowImage.get_path_by_rect($HBoxContainer/Card3/IdolAvatar)
+##BUTTON PROFILE
+func _on_play_dee_pressed() -> void:
+	profile.username = "Dee"
+	profile.load_profile()
+	
+func _on_play_mekari_pressed() -> void:
+	profile.username = "Mekari"
+	profile.load_profile()
+	
+func _on_play_mia_pressed() -> void:
+	profile.username = "Mia"
+	profile.load_profile()
+	
+func _on_close_pressed() -> void:
+	GlobalStats.change_scene_async("res://scenes/desktop/desktop.tscn")
