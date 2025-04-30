@@ -5,33 +5,44 @@ extends Control
 @onready var orders_container = $ordersContainer
 @onready var scroll_image: ScrollContainer = $ScrollImage
 @onready var wish_container: GridContainer = $WishContainer
+@onready var audio_alert: AudioStreamPlayer = $AudioAlert
 
 #cargables:
 @onready var label_username: Label = $LabelUsername
 @onready var avatar: TextureRect = $Avatar
 @onready var e_girl_voice: AudioStreamPlayer = $"E-girl-voice"
+@onready var e_chat_cost_label: Label = $"ordersContainer/Panel/E-chat_cost_label"
 
 @onready var voice_btn: Button = $VoiceBtn
+@onready var btn_chat_start: Button = $ordersContainer/Panel/btn_chat_start
+
+@onready var e_girl_progress_bar: ProgressBar = $"PanelStats/E-girlProgressBar"
 
 var allResources = [
-	{"username": "Dee", "avatar": "res://asset/icons/dee_icon_circle.png", "voice": ""},
-	{"username": "Mekari", "avatar": "res://asset/icons/mekari_icon_circle.png", "voice": "res://audio/sound/mekari/audio_mekari_1.ogg"},
-	{"username": "Mia", "avatar": "res://asset/icons/mia_icon_circle.png"},
+	{"username": "Dee", "avatar": "res://asset/icons/dee_icon_circle.png", "voice": "", "chat": "10", "selfie": "5"},
+	{"username": "Mekari", "avatar": "res://asset/icons/mekari_icon_circle.png", "voice": "res://audio/sound/mekari/audio_mekari_1.ogg", "chat": "5"},
+	{"username": "Mia", "avatar": "res://asset/icons/mia_icon_circle.png", "voice": "res://audio/sound/mekari/audio_mekari_1.ogg", "chat": "50"},
 ]
 
 @export var username = "Dee"
 
+signal start_echat(username)
+signal send_selfie(username)
+
 func _ready() -> void:
 	GlobalText.text_end.connect(_end_text_scene)
+	GlobalStats.stats_changed.connect(update_stats)
 
 func load_profile():
+	print(GlobalStats.deePoints)
 	var avatar_path = get_avatar_by_username(username, "username")
 	if avatar_path:
 		#load todo
 		label_username.text = avatar_path
 		avatar.texture = load(get_avatar_by_username(username, "avatar"))
 		e_girl_voice.stream = load(get_avatar_by_username(username, "voice"))
-		
+		e_chat_cost_label.text = "$ " + get_avatar_by_username(username, "chat")
+		update_stats()
 	else:
 		print("No se encontró el avatar para:", username)	
 	visible = true
@@ -86,3 +97,66 @@ func _on_voice_btn_pressed() -> void:
 
 func _end_text_scene():
 	voice_btn.disabled = false
+
+func _on_btn_chat_start_pressed() -> void:
+	var e_chat_cost = int(get_avatar_by_username(username, "chat"))
+	
+	if GlobalStats.money >= e_chat_cost:
+		
+		if username == "Dee":
+			if GlobalStats.dee_chating == false:
+				GlobalStats.money -= e_chat_cost
+				start_echat.emit(username)
+				GlobalStats.dee_chating = true
+				btn_chat_start.disabled = true
+		elif username == "Mekari":
+			if GlobalStats.mekari_chating == false:
+				GlobalStats.money -= e_chat_cost
+				start_echat.emit(username)
+				GlobalStats.mekari_chating = true
+				btn_chat_start.disabled = true
+		elif username == "Mia":
+			if GlobalStats.mia_chating == false:
+				GlobalStats.money -= e_chat_cost
+				start_echat.emit(username)
+				GlobalStats.mia_chating = true
+				btn_chat_start.disabled = true
+		
+		
+	else:
+		audio_alert.stream = load("res://audio/sound/robar_sonido.mp3")
+		audio_alert.play()
+		
+func update_stats():
+	if username == "Dee":
+		e_girl_progress_bar.value = GlobalStats.deePoints
+	elif username == "Mekari":
+		e_girl_progress_bar.value = GlobalStats.mekariPoints
+	elif username == "Mia":
+		e_girl_progress_bar.value = GlobalStats.miaPoints
+
+## WISH LIST
+func _on_wish_btn_1_pressed() -> void:
+	GlobalStats.money -= 5
+	GlobalStats.deePoints += 10
+
+func _on_btn_selfie_start_pressed() -> void:
+	var e_chat_cost = int(get_avatar_by_username(username, "selfie"))
+	
+	if GlobalStats.money >= e_chat_cost:
+		
+		if username == "Dee":
+			GlobalStats.money -= e_chat_cost
+			send_selfie.emit(username)
+			GlobalStats.dee_chating = true
+			btn_chat_start.disabled = true
+		elif username == "Mekari":
+			GlobalStats.money -= e_chat_cost
+			send_selfie.emit(username)
+			GlobalStats.mekari_chating = true
+			btn_chat_start.disabled = true
+		elif username == "Mia":
+			GlobalStats.money -= e_chat_cost
+			send_selfie.emit(username)
+			GlobalStats.mia_chating = true
+			btn_chat_start.disabled = true

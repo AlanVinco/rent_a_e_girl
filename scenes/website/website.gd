@@ -18,6 +18,7 @@ signal dialogue_finished
 
 @onready var chat_messages: Panel = $SideBar/ChatMessages
 @onready var avatar_image: TextureRect = $SideBar/AvatarImage
+@onready var scrollChatContainer: ScrollContainer = $SideBar/ChatMessages/VScrollBar
 
 var is_open := true
 var collapsed_width := 100  # Solo íconos
@@ -30,12 +31,16 @@ var animation_duration := 0.3
 @export var boolChatUsername = true
 
 func _ready():
-	AudioManager.stop_music()
+	AudioManager.start_song("PAGE_THEME")
 	toggle_button.text = "X"
-	start_chat(sceneName)
+	#start_chat(sceneName)
 
 	# Conecta el botón de toggle de cerrar y abrir
 	toggle_button.pressed.connect(_toggle_sidebar)
+	profile.start_echat.connect(e_chat)
+	profile.send_selfie.connect(selfie)
+	await get_tree().create_timer(0.2).timeout
+	_toggle_sidebar()
 
 ##SIDE BAR
 func _toggle_sidebar():
@@ -66,7 +71,7 @@ func hide_sidebar_ements(value):
 	avatar_image.visible = value
 	boolChatUsername = value
 	
-##CHAT
+##CHAAAAAAAAAAAAAAAAAAAAAAAAAAAAAT😶‍🌫️
 func create_bubble_player_text(dialogue):
 	var buble_text_scene = preload("res://scenes/website/bubble_player_text.tscn")
 	var text_instantiate = buble_text_scene.instantiate()
@@ -115,8 +120,10 @@ func show_dialogue():
 			typing_bubble.stop_typing()
 			if mensaje.is_valid_float():
 				create_bubble_image(mensaje)
+				await scroll_to_bottom()
 			else:
 				create_bubble_text(mensaje)
+				await scroll_to_bottom()
 
 		CHATusername.visible = boolChatUsername
 
@@ -152,10 +159,25 @@ func on_option_selected(index: int):
 	apply_effect(efecto)
 	dialogue_manager.select_option(index)
 	show_dialogue()
+	await scroll_to_bottom()
 
 
 func apply_effect(efecto: String):
-	print("Efecto aplicado:", efecto)
+	match efecto:
+		"mas":
+			if GlobalStats.egirl =="Dee":
+				GlobalStats.deePoints +=5
+			if GlobalStats.egirl =="Mekari":
+				GlobalStats.mekariPoints +=5
+			if GlobalStats.egirl =="Mia":
+				GlobalStats.miaPoints +=5
+		"menos":
+			if GlobalStats.egirl =="Dee":
+				GlobalStats.deePoints -=5
+			if GlobalStats.egirl =="Mekari":
+				GlobalStats.mekariPoints -=5
+			if GlobalStats.egirl =="Mia":
+				GlobalStats.miaPoints -=5
 
 
 func _on_chat_button_pressed() -> void:
@@ -172,7 +194,12 @@ func end_chat():
 	emit_signal("dialogue_finished")
 	chat_button.disabled = true
 
-#CLICK IMAGE 
+func scroll_to_bottom():
+	await get_tree().process_frame  # Espera un frame para asegurar que el nuevo mensaje se haya agregado
+	scrollChatContainer.scroll_vertical = scrollChatContainer.get_v_scroll_bar().max_value
+
+
+##CLICK IMAGE 📈
 
 func _on_dee_picture_gui_input(event: InputEvent) -> void:
 	if event.is_action("left_click"):
@@ -199,4 +226,76 @@ func _on_play_mia_pressed() -> void:
 	profile.load_profile()
 	
 func _on_close_pressed() -> void:
+	GlobalStats.dee_chating = false
+	GlobalStats.mekari_chating = false
+	GlobalStats.mia_chating = false
+	GlobalStats.egirl = ""
 	GlobalStats.change_scene_async("res://scenes/desktop/desktop.tscn")
+
+##E-CHAT
+func e_chat(user):	
+	_toggle_sidebar()
+	GlobalStats.egirl = user
+	##EMPIEZA LA MAGIA
+	await load_chat_user(user)
+	await scene_chat_selector(user)
+	#await start_chat(sceneName)
+	options_container.visible = false
+
+func load_chat_user(user):
+	if user == "Dee":
+		$SideBar/VBoxContainer/DeeAvatarCircle.visible = true
+		avatar_image.texture = load("res://asset/icons/dee_icon_circle.png")
+		AudioManager.start_song("DEE_THEME")
+		$HBoxContainer/Card2/PlayMekari.disabled = true
+		$HBoxContainer/Card3/PlayMia.disabled = true
+	if user == "Mekari":
+		$SideBar/VBoxContainer/MekariAvatarCircle.visible = true
+		avatar_image.texture = load("res://asset/icons/mekari_icon_circle.png")
+		$HBoxContainer/Card/PlayDee.disabled = true
+		$HBoxContainer/Card3/PlayMia.disabled = true
+	if user == "Mia":
+		$SideBar/VBoxContainer/MiaAvatarCircle.visible = true
+		avatar_image.texture = load("res://asset/icons/mia_icon_circle.png")
+		$HBoxContainer/Card2/PlayMekari.disabled = true
+		$HBoxContainer/Card/PlayDee.disabled = true
+	
+	CHATusername.text = user
+	CHATusername.visible = true
+	avatar_image.visible = true
+	
+func has_scene_in_character(character: String, scene_to_find: String) -> bool:
+	if GlobalStats.unlocked_scenes.has(character):  # Primero verifica si la clave existe
+		return scene_to_find in GlobalStats.unlocked_scenes[character]  # Luego busca el valor en el array
+	return false  # Si la clave no existe
+
+func scene_chat_selector(user):
+	if user == "Dee":
+		if !has_scene_in_character(user, "dee_1"):
+			GlobalStats.chatNameScene = "dee_1"
+			sceneName = GlobalStats.chatNameScene
+		else:
+			GlobalStats.chatNameScene = "dee_2"
+			sceneName = GlobalStats.chatNameScene
+			
+	start_chat(sceneName)
+
+##SELFIE
+func selfie(user):
+	_toggle_sidebar()
+	GlobalStats.egirl = user
+	##EMPIEZA LA MAGIA
+	await load_chat_user(user)
+	select_e_girl_image(user)
+	#await scene_chat_selector(user)
+	options_container.visible = false
+
+func select_e_girl_image(user):
+	if user == "Dee":
+		await GlobalStats.pick_selfie_image()
+		create_bubble_image("selfie")
+	elif user == "Mekari":
+		pass
+	elif  user == "Mia":
+		pass
+	#create_bubble_image(image)

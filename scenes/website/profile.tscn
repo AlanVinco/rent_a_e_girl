@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dpppcsletwvma"]
+[gd_scene load_steps=24 format=3 uid="uid://dpppcsletwvma"]
 
 [ext_resource type="Script" uid="uid://c7uyruoevp4yd" path="res://scenes/website/profile.gd" id="1_nmsjo"]
 [ext_resource type="Texture2D" uid="uid://c5qfype7delp2" path="res://asset/icons/avatar_circle_test.png" id="1_qc7ab"]
@@ -6,8 +6,12 @@
 [ext_resource type="StyleBox" uid="uid://bu26s0idkr7ns" path="res://scenes/website/panel_bio.tres" id="4_3f4ig"]
 [ext_resource type="Script" uid="uid://dxypt3itg14vb" path="res://scenes/website/scroll_image.gd" id="4_ld5kt"]
 [ext_resource type="Texture2D" uid="uid://cdy3fni2obwn0" path="res://asset/icons/dolaricon-no_bg.png" id="4_t75ln"]
+[ext_resource type="Texture2D" uid="uid://2k855iklikrk" path="res://asset/icons/e-chat.png" id="5_uipia"]
+[ext_resource type="Texture2D" uid="uid://mf5kunli5gy7" path="res://asset/icons/selfie.png" id="6_juayx"]
 [ext_resource type="Texture2D" uid="uid://c284mbks7c86d" path="res://asset/objects/perfume_test.png" id="7_523wj"]
+[ext_resource type="Texture2D" uid="uid://brkis0v0klgh5" path="res://asset/icons/videoIcon.jpg" id="7_scylc"]
 [ext_resource type="Theme" uid="uid://b47stwiji5ix6" path="res://scenes/website/btn_buy_theme.tres" id="8_6nfab"]
+[ext_resource type="Texture2D" uid="uid://dxxh76yct2iw5" path="res://asset/icons/videollamada.png" id="8_8i2rs"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1iej"]
 bg_color = Color(0.188235, 0.184314, 0.239216, 1)
@@ -37,6 +41,23 @@ shadow_size = 10
 
 [sub_resource type="Theme" id="Theme_t75ln"]
 Panel/styles/panel = SubResource("StyleBoxFlat_up1h8")
+
+[sub_resource type="Theme" id="Theme_uipia"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_juayx"]
+bg_color = Color(0, 0.228377, 0.546011, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_size = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8i2rs"]
+bg_color = Color(0.916264, 2.05037e-05, 0.631383, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="Theme" id="Theme_up1h8"]
 Panel/styles/panel = ExtResource("4_3f4ig")
@@ -164,11 +185,128 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource("Theme_8i2rs")
 
+[node name="TextureRect" type="TextureRect" parent="ordersContainer/Panel"]
+modulate = Color(0.854406, 2.34878e-05, 0.599351, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_uipia")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="ordersContainer/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_right = 30.0
+offset_bottom = 28.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "E-chat"
+
+[node name="E-chat_cost_label" type="Label" parent="ordersContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -27.5
+offset_right = 45.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 40
+text = "$100"
+
+[node name="btn_chat_start" type="Button" parent="ordersContainer/Panel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.415997
+anchor_top = 0.710229
+anchor_right = 0.663997
+anchor_bottom = 0.926138
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("8_6nfab")
+theme_override_font_sizes/font_size = 20
+text = "▶"
+metadata/_edit_use_anchors_ = true
+
 [node name="Panel2" type="Panel" parent="ordersContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource("Theme_8i2rs")
+
+[node name="TextureRect" type="TextureRect" parent="ordersContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_juayx")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="ordersContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_right = 30.0
+offset_bottom = 28.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Selfie"
+
+[node name="selfie_cost_label" type="Label" parent="ordersContainer/Panel2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -27.5
+offset_right = 45.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 40
+text = "$100"
+
+[node name="btn_selfie_start" type="Button" parent="ordersContainer/Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.415997
+anchor_top = 0.710229
+anchor_right = 0.663997
+anchor_bottom = 0.926138
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("8_6nfab")
+theme_override_font_sizes/font_size = 20
+text = "▶"
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel3" type="Panel" parent="ordersContainer"]
 layout_mode = 2
@@ -176,11 +314,129 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource("Theme_8i2rs")
 
+[node name="TextureRect" type="TextureRect" parent="ordersContainer/Panel3"]
+modulate = Color(0.600095, 0.685692, 1, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_scylc")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="ordersContainer/Panel3"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_right = 30.0
+offset_bottom = 28.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "Video"
+
+[node name="video_cost_label" type="Label" parent="ordersContainer/Panel3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -27.5
+offset_right = 45.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 40
+text = "$100"
+
+[node name="btn_vdeo_start" type="Button" parent="ordersContainer/Panel3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.415997
+anchor_top = 0.710229
+anchor_right = 0.663997
+anchor_bottom = 0.926138
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("8_6nfab")
+theme_override_font_sizes/font_size = 20
+text = "▶"
+metadata/_edit_use_anchors_ = true
+
 [node name="Panel4" type="Panel" parent="ordersContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource("Theme_8i2rs")
+
+[node name="TextureRect" type="TextureRect" parent="ordersContainer/Panel4"]
+modulate = Color(0.994017, 0.301505, 1, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_8i2rs")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="ordersContainer/Panel4"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -30.0
+offset_right = 30.0
+offset_bottom = 28.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 30
+text = "VideoCall"
+
+[node name="videocall_cost_label" type="Label" parent="ordersContainer/Panel4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.5
+offset_top = -27.5
+offset_right = 45.5
+offset_bottom = 27.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 40
+text = "$100"
+
+[node name="btn_videocall_start" type="Button" parent="ordersContainer/Panel4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.415997
+anchor_top = 0.710229
+anchor_right = 0.663997
+anchor_bottom = 0.926138
+grow_horizontal = 0
+grow_vertical = 2
+theme = ExtResource("8_6nfab")
+theme_override_font_sizes/font_size = 20
+text = "▶"
+metadata/_edit_use_anchors_ = true
 
 [node name="PanelStats" type="Panel" parent="."]
 layout_mode = 1
@@ -195,18 +451,39 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="PanelStats"]
 layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -46.5
+offset_top = -26.0
+offset_right = 46.5
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "player_reputation"
+
+[node name="E-girlProgressBar" type="ProgressBar" parent="PanelStats"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -11.5
-offset_right = 20.0
-offset_bottom = 11.5
+offset_left = -38.0
+offset_top = -157.0
+offset_right = 38.0
+offset_bottom = 157.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "player_stats"
+theme = SubResource("Theme_uipia")
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 30
+theme_override_styles/background = SubResource("StyleBoxFlat_juayx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8i2rs")
+value = 50.0
+fill_mode = 3
 
 [node name="PanelBio" type="Panel" parent="."]
 layout_mode = 1
@@ -304,7 +581,7 @@ texture = ExtResource("7_523wj")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="WishContainer/Panel"]
+[node name="WishBtn1" type="Button" parent="WishContainer/Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.662698
@@ -753,8 +1030,13 @@ metadata/_edit_use_anchors_ = true
 [node name="E-girl-voice" type="AudioStreamPlayer" parent="."]
 bus = &"voices"
 
+[node name="AudioAlert" type="AudioStreamPlayer" parent="."]
+
 [connection signal="pressed" from="VoiceBtn" to="." method="_on_voice_btn_pressed"]
 [connection signal="pressed" from="nav_container/btn_info" to="." method="_on_btn_info_pressed"]
 [connection signal="pressed" from="nav_container/btn_album" to="." method="_on_btn_album_pressed"]
 [connection signal="pressed" from="nav_container/btn_wishlist" to="." method="_on_btn_wishlist_pressed"]
+[connection signal="pressed" from="ordersContainer/Panel/btn_chat_start" to="." method="_on_btn_chat_start_pressed"]
+[connection signal="pressed" from="ordersContainer/Panel2/btn_selfie_start" to="." method="_on_btn_selfie_start_pressed"]
 [connection signal="pressed" from="btn_close" to="." method="_on_btn_close_pressed"]
+[connection signal="pressed" from="WishContainer/Panel/WishBtn1" to="." method="_on_wish_btn_1_pressed"]

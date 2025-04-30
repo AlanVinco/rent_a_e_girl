@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://dju2ywi613fha"]
+
+[ext_resource type="Script" uid="uid://c834p0kjx1wrg" path="res://scenes/ui/ui.gd" id="1_u7n8c"]
+[ext_resource type="Texture2D" uid="uid://cdy3fni2obwn0" path="res://asset/icons/dolaricon-no_bg.png" id="2_f5cxw"]
+
+[node name="UI" type="Node"]
+script = ExtResource("1_u7n8c")
+
+[node name="money" type="Label" parent="."]
+z_index = 20
+offset_left = 6.0
+offset_right = 46.0
+offset_bottom = 55.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="TextureRect" type="TextureRect" parent="money"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.475
+anchor_top = -0.145455
+anchor_right = 2.75
+anchor_bottom = 1.29091
+grow_horizontal = 0
+texture = ExtResource("2_f5cxw")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true

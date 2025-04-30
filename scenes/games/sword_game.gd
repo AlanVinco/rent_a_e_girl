@@ -125,4 +125,5 @@ func show_money_alert_reduce(amount, position):
 
 
 func _on_button_pressed() -> void:
+	GlobalStats.money += player_money
 	GlobalStats.change_scene_async("res://scenes/desktop/desktop.tscn")

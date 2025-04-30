@@ -7,7 +7,9 @@ extends Node
 var current_clip = ""
 var clip_durations = {
 	"MONEY_GAME_THEME": 52.87,  # Duración en segundos
-	"lofi_1": 135.6
+	"lofi_1": 135.6,
+	"DEE_THEME": 199.003,
+	"PAGE_THEME": 116.189,
 	# Agrega más clips y su duración aquí
 }
 

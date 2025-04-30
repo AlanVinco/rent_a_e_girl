@@ -22,6 +22,7 @@ AudioManager="*res://scenes/audio_manager.tscn"
 GlobalStats="*res://globalStats.gd"
 TranslationManager="*res://scripts/TranslationManager.gd"
 GlobalText="*res://scenes/text/text.tscn"
+Ui="*res://scenes/ui/ui.tscn"
 
 [input]
 

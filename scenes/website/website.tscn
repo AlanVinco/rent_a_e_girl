@@ -622,11 +622,11 @@ anchor_right = 0.472222
 anchor_bottom = 0.21142
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("10_x35vn")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Username" type="Label" parent="SideBar"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.467448
@@ -636,7 +636,6 @@ anchor_bottom = 0.212191
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 40
-text = "Dee"
 metadata/_edit_use_anchors_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SideBar"]
@@ -649,16 +648,19 @@ offset_bottom = 647.0
 grow_horizontal = 0
 
 [node name="DeeAvatarCircle" type="Sprite2D" parent="SideBar/VBoxContainer"]
+visible = false
 position = Vector2(91, 203)
 scale = Vector2(0.372222, 0.372222)
 texture = ExtResource("10_x35vn")
 
 [node name="MekariAvatarCircle" type="Sprite2D" parent="SideBar/VBoxContainer"]
+visible = false
 position = Vector2(91, 303)
 scale = Vector2(0.372222, 0.372222)
 texture = ExtResource("11_kxu0i")
 
 [node name="MiaAvatarCircle" type="Sprite2D" parent="SideBar/VBoxContainer"]
+visible = false
 position = Vector2(91, 404)
 scale = Vector2(0.372222, 0.372222)
 texture = ExtResource("12_py1s5")
