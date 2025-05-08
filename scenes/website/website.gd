@@ -31,6 +31,7 @@ var animation_duration := 0.3
 @export var boolChatUsername = true
 
 func _ready():
+	print("Website scene is ready")
 	AudioManager.start_song("PAGE_THEME")
 	toggle_button.text = "X"
 	#start_chat(sceneName)
@@ -272,11 +273,18 @@ func has_scene_in_character(character: String, scene_to_find: String) -> bool:
 func scene_chat_selector(user):
 	if user == "Dee":
 		if !has_scene_in_character(user, "dee_1"):
-			GlobalStats.chatNameScene = "dee_1"
+			GlobalStats.chatNameScene = "dee_3"
 			sceneName = GlobalStats.chatNameScene
 		else:
-			GlobalStats.chatNameScene = "dee_2"
-			sceneName = GlobalStats.chatNameScene
+			if GlobalStats.deePoints < 30:
+				GlobalStats.chatNameScene = "dee_2"
+				sceneName = GlobalStats.chatNameScene
+			elif GlobalStats.deePoints >= 30 and GlobalStats.deePoints < 50:
+				GlobalStats.chatNameScene = "dee_3"
+				sceneName = GlobalStats.chatNameScene
+			elif GlobalStats.deePoints >= 50 and GlobalStats.deePoints < 70:
+				GlobalStats.chatNameScene = "dee_4"
+				sceneName = GlobalStats.chatNameScene
 			
 	start_chat(sceneName)
 
