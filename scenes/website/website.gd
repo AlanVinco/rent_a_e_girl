@@ -273,7 +273,7 @@ func has_scene_in_character(character: String, scene_to_find: String) -> bool:
 func scene_chat_selector(user):
 	if user == "Dee":
 		if !has_scene_in_character(user, "dee_1"):
-			GlobalStats.chatNameScene = "dee_3"
+			GlobalStats.chatNameScene = "dee_5"
 			sceneName = GlobalStats.chatNameScene
 		else:
 			if GlobalStats.deePoints < 30:

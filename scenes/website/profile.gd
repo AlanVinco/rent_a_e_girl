@@ -19,9 +19,9 @@ extends Control
 @onready var e_girl_progress_bar: ProgressBar = $"PanelStats/E-girlProgressBar"
 
 var allResources = [
-	{"username": "Dee", "avatar": "res://asset/icons/dee_icon_circle.png", "voice": "", "chat": "10", "selfie": "5"},
-	{"username": "Mekari", "avatar": "res://asset/icons/mekari_icon_circle.png", "voice": "res://audio/sound/mekari/audio_mekari_1.ogg", "chat": "5"},
-	{"username": "Mia", "avatar": "res://asset/icons/mia_icon_circle.png", "voice": "res://audio/sound/mekari/audio_mekari_1.ogg", "chat": "50"},
+	{"username": "Dee", "avatar": "res://asset/icons/dee_icon_circle.png", "voice": "", "chat": "10", "selfie": "5", "videocall":"10"},
+	{"username": "Mekari", "avatar": "res://asset/icons/mekari_icon_circle.png", "voice": "res://audio/sound/mekari/audio_mekari_1.ogg", "chat": "5", "videocall":"10"},
+	{"username": "Mia", "avatar": "res://asset/icons/mia_icon_circle.png", "voice": "res://audio/sound/mekari/audio_mekari_1.ogg", "chat": "50", "videocall":"10"},
 ]
 
 @export var username = "Dee"
@@ -160,3 +160,9 @@ func _on_btn_selfie_start_pressed() -> void:
 			send_selfie.emit(username)
 			GlobalStats.mia_chating = true
 			btn_chat_start.disabled = true
+
+func _on_btn_videocall_start_pressed() -> void:
+	var video_call_cost = int(get_avatar_by_username(username, "selfie"))
+	GlobalStats.money -= video_call_cost
+	GlobalStats.egirl = username
+	GlobalStats.change_scene_async("res://scenes/videocall/call_intro.tscn")

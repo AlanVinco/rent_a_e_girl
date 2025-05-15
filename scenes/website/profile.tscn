@@ -1038,5 +1038,6 @@ bus = &"voices"
 [connection signal="pressed" from="nav_container/btn_wishlist" to="." method="_on_btn_wishlist_pressed"]
 [connection signal="pressed" from="ordersContainer/Panel/btn_chat_start" to="." method="_on_btn_chat_start_pressed"]
 [connection signal="pressed" from="ordersContainer/Panel2/btn_selfie_start" to="." method="_on_btn_selfie_start_pressed"]
+[connection signal="pressed" from="ordersContainer/Panel4/btn_videocall_start" to="." method="_on_btn_videocall_start_pressed"]
 [connection signal="pressed" from="btn_close" to="." method="_on_btn_close_pressed"]
 [connection signal="pressed" from="WishContainer/Panel/WishBtn1" to="." method="_on_wish_btn_1_pressed"]

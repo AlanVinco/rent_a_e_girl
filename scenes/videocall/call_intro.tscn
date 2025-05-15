@@ -1,0 +1,93 @@
+[gd_scene load_steps=5 format=3 uid="uid://dy45mniurq3y2"]
+
+[ext_resource type="Script" uid="uid://u0vaunfxufri" path="res://scenes/videocall/call_intro.gd" id="1_4307o"]
+[ext_resource type="Texture2D" uid="uid://cxj5qgg4x1ukv" path="res://asset/icons/dee_icon_circle.png" id="1_qcewu"]
+[ext_resource type="Texture2D" uid="uid://cue071rewmtpx" path="res://asset/icons/call_icons.png" id="2_caeyd"]
+[ext_resource type="Texture2D" uid="uid://brpw515i6bamf" path="res://asset/icons/CIRCLE_LOGO.png" id="2_if2yl"]
+
+[node name="CallIntro" type="Node"]
+script = ExtResource("1_4307o")
+
+[node name="Background" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.164706, 0.172549, 0.2, 1)
+
+[node name="EgirlName" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.5
+offset_top = 163.0
+offset_right = 46.5
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "E-GIRL"
+
+[node name="Circle" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -119.0
+offset_top = -119.0
+offset_right = 119.0
+offset_bottom = 119.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_if2yl")
+expand_mode = 1
+
+[node name="EgirlIcon" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_qcewu")
+
+[node name="CallIcons" type="TextureRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -154.0
+offset_top = -113.0
+offset_right = 155.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_caeyd")
+expand_mode = 1
+
+[node name="ButtonCallIcon" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 178.0
+offset_top = -128.0
+offset_right = 255.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.75339, 2.38247e-06, 5.77569e-07, 1)
+theme_override_font_sizes/font_size = 80
+disabled = true
+text = "✆"
