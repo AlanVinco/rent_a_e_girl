@@ -8,11 +8,13 @@ var tween_foto : Tween
 var tween_circulo : Tween
 
 func _ready():
+	AudioManager.start_song("VIDEOCALL_THEME")
 	# Centrar pivotes
 	check_egirl()
 	foto.pivot_offset = foto.size / 2
 	circulo.pivot_offset = circulo.size / 2
 	_iniciar_animacion_llamada()
+	await get_tree().create_timer(8.0).timeout
 
 func _iniciar_animacion_llamada():
 	_animar_foto()

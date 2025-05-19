@@ -10,6 +10,7 @@ var clip_durations = {
 	"lofi_1": 135.6,
 	"DEE_THEME": 199.003,
 	"PAGE_THEME": 116.189,
+	"VIDEOCALL_THEME":8.07,
 	# Agrega más clips y su duración aquí
 }
 

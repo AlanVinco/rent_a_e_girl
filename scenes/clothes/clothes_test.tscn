@@ -36,6 +36,7 @@ texture = ExtResource("5_5ykdx")
 expand_mode = 3
 
 [node name="TextureRect2" type="TextureRect" parent="TextureRect"]
+layout_mode = 0
 offset_right = 850.0
 offset_bottom = 477.0
 texture = ExtResource("6_2w0ei")
