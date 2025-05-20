@@ -18,6 +18,9 @@ extends Control
 
 @onready var e_girl_progress_bar: ProgressBar = $"PanelStats/E-girlProgressBar"
 
+@onready var btn_videocall_start: Button = $ordersContainer/Panel4/btn_videocall_start
+@onready var lbl_call_info: Label = $lbl_call_info
+
 var allResources = [
 	{"username": "Dee", "avatar": "res://asset/icons/dee_icon_circle.png", "voice": "", "chat": "10", "selfie": "5", "videocall":"10"},
 	{"username": "Mekari", "avatar": "res://asset/icons/mekari_icon_circle.png", "voice": "res://audio/sound/mekari/audio_mekari_1.ogg", "chat": "5", "videocall":"10"},
@@ -130,10 +133,23 @@ func _on_btn_chat_start_pressed() -> void:
 func update_stats():
 	if username == "Dee":
 		e_girl_progress_bar.value = GlobalStats.deePoints
+		if GlobalStats.deePoints <100:
+			btn_videocall_start.disabled = true
+		else:
+			btn_videocall_start.disabled = false
+			
 	elif username == "Mekari":
 		e_girl_progress_bar.value = GlobalStats.mekariPoints
+		if GlobalStats.mekariPoints <100:
+			btn_videocall_start.disabled = true
+		else:
+			btn_videocall_start.disabled = false
 	elif username == "Mia":
 		e_girl_progress_bar.value = GlobalStats.miaPoints
+		if GlobalStats.miaPoints <100:
+			btn_videocall_start.disabled = true
+		else:
+			btn_videocall_start.disabled = false
 
 ## WISH LIST
 func _on_wish_btn_1_pressed() -> void:
@@ -166,3 +182,9 @@ func _on_btn_videocall_start_pressed() -> void:
 	GlobalStats.money -= video_call_cost
 	GlobalStats.egirl = username
 	GlobalStats.change_scene_async("res://scenes/videocall/call_intro.tscn")
+
+func _on_btn_videocall_start_mouse_entered() -> void:
+	lbl_call_info.visible = true
+
+func _on_btn_videocall_start_mouse_exited() -> void:
+	lbl_call_info.visible = false

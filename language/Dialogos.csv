@@ -11,9 +11,12 @@ escena_2_2,escena_2_2,Bot,neutral,bot.png,El blanco es un color pacífico.,White
 escena_2_3,escena_2_3,Bot,enojado,bot_enojado.png,¡¿Negro?! No me gusta ese color.,Black?! I don't like that color.,Perdón,Sorry,escena_2_fin,---,2
 escena_2_fin,escena_2_fin,Bot,neutral,bot.png,Fin del diálogo.,End of dialogue.,,,,---,2
 ,,,,,,,,,,,
-text_txt1,TEST1,LISA,NORMAL,bot.png,Hola soy goku,Hello,,,,,2
-text_txt2,TEST1,LISA,NORMAL,bot.png, y muchos me llaman staren por que soy muy feliz al vivir aqui,,,,,,2
-text_txt3,TEST1,LISA,NORMAL,bot.png,vive o muere bajo la cuchilla ,,,,,,2
+text_txt1,TEST1,DEE,NORMAL,bot.png,Hola soy goku,Hello,,,,,2
+text_txt2,TEST1,DEE,NORMAL,bot.png, y muchos me llaman staren por que soy muy feliz al vivir aqui,,,,,,2
+text_txt3,TEST1,DEE,NORMAL,bot.png,vive o muere bajo la cuchilla ,,,,,,2
+,,,,,,,,,,,
+dee_s1_txt1,DEEVISUAL1,DEEVISUAL,NORMAL,res://asset/cutscenes/dee/videocall/S1.png,HOLA UWU,HELLO UWU,,,,,2
+dee_s1_txt2,DEEVISUAL1,DEEVISUAL,NORMAL,res://asset/cutscenes/dee/videocall/S2.png,OWO,OWO,,,,,2
 ,,,,,,,,,,,
 dee_1,d_1_1,DEE,neutral,bot.png,¡Holaaa!||Soy Dee. Mucho gusto||¿Cómo estás?,Hello!||I'm Dee. Nice to meet you||How are you?,Muy bien gracias y ¿tu?|Normal y ¿Tu?|Que te importa.,Muy bien gracias y ¿tu?|¿Normal  y tu?|Que te importa ,d_1_2|d_1_2|d_1_3,mas|n|menos,2
 d_1_2,d_1_2,DEE,feliz,bot_sonrie.png,Bien gracias por preguntar||Agradezco mucho que hayas rentado mi servicio ☺️||¿Te gustan los videojuegos?,Well thanks for asking||I really appreciate you renting my service ☺️||Do you like video games?,Sí|No,Yes|No,d_1_4|d_1_5,mas|menos,2

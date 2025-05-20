@@ -26,7 +26,7 @@ grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0, 0, 0.741176)
 
-[node name="LISANORMAL" type="TextureRect" parent="CanvasLayer"]
+[node name="DEENORMAL" type="TextureRect" parent="CanvasLayer"]
 visible = false
 anchors_preset = -1
 anchor_left = 0.314236

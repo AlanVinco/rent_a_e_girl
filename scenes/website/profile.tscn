@@ -1032,12 +1032,29 @@ bus = &"voices"
 
 [node name="AudioAlert" type="AudioStreamPlayer" parent="."]
 
+[node name="lbl_call_info" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.53125
+anchor_top = 0.959877
+anchor_right = 0.611111
+anchor_bottom = 1.00309
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "txt_hover"
+metadata/_edit_use_anchors_ = true
+
 [connection signal="pressed" from="VoiceBtn" to="." method="_on_voice_btn_pressed"]
 [connection signal="pressed" from="nav_container/btn_info" to="." method="_on_btn_info_pressed"]
 [connection signal="pressed" from="nav_container/btn_album" to="." method="_on_btn_album_pressed"]
 [connection signal="pressed" from="nav_container/btn_wishlist" to="." method="_on_btn_wishlist_pressed"]
 [connection signal="pressed" from="ordersContainer/Panel/btn_chat_start" to="." method="_on_btn_chat_start_pressed"]
 [connection signal="pressed" from="ordersContainer/Panel2/btn_selfie_start" to="." method="_on_btn_selfie_start_pressed"]
+[connection signal="mouse_entered" from="ordersContainer/Panel4/btn_videocall_start" to="." method="_on_btn_videocall_start_mouse_entered"]
+[connection signal="mouse_exited" from="ordersContainer/Panel4/btn_videocall_start" to="." method="_on_btn_videocall_start_mouse_exited"]
 [connection signal="pressed" from="ordersContainer/Panel4/btn_videocall_start" to="." method="_on_btn_videocall_start_pressed"]
 [connection signal="pressed" from="btn_close" to="." method="_on_btn_close_pressed"]
 [connection signal="pressed" from="WishContainer/Panel/WishBtn1" to="." method="_on_wish_btn_1_pressed"]
