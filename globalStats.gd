@@ -38,7 +38,7 @@ signal money_changed
 			unlocked_scenes[egirl].append(value)  # 👈 CORRECTO
 		print(unlocked_scenes)
 
-@export var visualNovel = "":
+@export var visualNovel = "DEEVISUAL1":
 	set(value):
 		visualNovel = value
 		if value not in unlocked_visual_novel:  # Verifica si el valor ya existe

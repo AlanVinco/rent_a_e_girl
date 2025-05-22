@@ -3,6 +3,7 @@ extends Node2D
 var player_node: Node = null
 signal on_all_texts_displayed
 signal text_end
+signal visualLoad
 var actos = {}
 var sumando = 1
 @export var sceneName = ""
@@ -164,6 +165,8 @@ func load_all_text_displayed(sceneName, sceneCodeTxt, Acto, actos):
 	mostrar_acto(Acto, actos,)
 	
 func mostrar_acto(acto_numero, actos,):
+	emit_signal("visualLoad")
+	print(actos)
 	if acto_numero in actos:
 		await get_tree().create_timer(0.5).timeout
 		var acto_data = actos[acto_numero]

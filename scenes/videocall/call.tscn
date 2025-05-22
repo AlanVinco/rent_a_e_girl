@@ -1,9 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjuu8imseras6"]
+[gd_scene load_steps=4 format=3 uid="uid://bjuu8imseras6"]
 
 [ext_resource type="Script" uid="uid://cnkttti5aivy0" path="res://scenes/videocall/call.gd" id="1_q7xeq"]
+[ext_resource type="Script" uid="uid://cvixrlgt32x3o" path="res://scenes/videocall/d_1.gd" id="2_37eev"]
+[ext_resource type="PackedScene" uid="uid://7nqbkkqip1b0" path="res://scenes/window_dialogue_final.tscn" id="2_mlx2l"]
 
 [node name="Call" type="Node"]
 script = ExtResource("1_q7xeq")
+TextScene = ExtResource("2_mlx2l")
 
 [node name="images" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -11,3 +14,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Audio1" type="AudioStreamPlayer" parent="."]
+
+[node name="Dee" type="Node" parent="."]
+
+[node name="D1" type="Node" parent="Dee"]
+script = ExtResource("2_37eev")
