@@ -1,12 +1,110 @@
-[gd_scene load_steps=4 format=3 uid="uid://bjuu8imseras6"]
+[gd_scene load_steps=26 format=3 uid="uid://bjuu8imseras6"]
 
 [ext_resource type="Script" uid="uid://cnkttti5aivy0" path="res://scenes/videocall/call.gd" id="1_q7xeq"]
 [ext_resource type="Script" uid="uid://cvixrlgt32x3o" path="res://scenes/videocall/d_1.gd" id="2_37eev"]
 [ext_resource type="PackedScene" uid="uid://7nqbkkqip1b0" path="res://scenes/window_dialogue_final.tscn" id="2_mlx2l"]
+[ext_resource type="Script" uid="uid://bon6pwtyo5m1t" path="res://scenes/videocall/quiz.gd" id="4_dvaie"]
+[ext_resource type="Theme" uid="uid://b47stwiji5ix6" path="res://scenes/website/btn_buy_theme.tres" id="5_khvg3"]
+[ext_resource type="Texture2D" uid="uid://cxwxueru3s8a3" path="res://asset/cutscenes/dee/videocall/animations/sx1_0000.png" id="6_63qo4"]
+[ext_resource type="Texture2D" uid="uid://ct8524e7y7fbx" path="res://asset/cutscenes/effects/FASTERFINAL0000.png" id="6_avnf7"]
+[ext_resource type="Texture2D" uid="uid://tgfmbywux2mx" path="res://asset/cutscenes/effects/FASTERFINAL0001.png" id="7_63qo4"]
+[ext_resource type="Texture2D" uid="uid://c8ovr3s7htay" path="res://asset/cutscenes/effects/FASTERFINAL0002.png" id="8_p0jhi"]
+[ext_resource type="Texture2D" uid="uid://bxpfc3h7crab1" path="res://asset/cutscenes/effects/FASTERFINAL0003.png" id="9_ub3cg"]
+[ext_resource type="Texture2D" uid="uid://d0ol7haxuivsb" path="res://asset/cutscenes/effects/FASTERFINAL0004.png" id="10_obvt0"]
+[ext_resource type="Texture2D" uid="uid://ceb2rhnnpudpa" path="res://asset/cutscenes/effects/FASTERFINAL0005.png" id="11_4e3xv"]
+[ext_resource type="Texture2D" uid="uid://0m7c44lpddfy" path="res://asset/cutscenes/effects/FASTERFINAL0006.png" id="12_srw60"]
+[ext_resource type="Texture2D" uid="uid://dtf5iickurksy" path="res://asset/cutscenes/effects/FASTERFINAL0007.png" id="13_napci"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p0jhi"]
+atlas = ExtResource("6_63qo4")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ub3cg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p0jhi")
+}],
+"loop": true,
+"name": &"dee_scene_1",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iblvm"]
+atlas = ExtResource("6_avnf7")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gu4ch"]
+atlas = ExtResource("7_63qo4")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8eher"]
+atlas = ExtResource("8_p0jhi")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_muio6"]
+atlas = ExtResource("9_ub3cg")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3e1ai"]
+atlas = ExtResource("10_obvt0")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs3cg"]
+atlas = ExtResource("11_4e3xv")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nockx"]
+atlas = ExtResource("12_srw60")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kleq8"]
+atlas = ExtResource("13_napci")
+region = Rect2(0, 0, 1280, 720)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gyhft"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iblvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gu4ch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8eher")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_muio6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3e1ai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs3cg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nockx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kleq8")
+}],
+"loop": true,
+"name": &"SPEED",
+"speed": 20.0
+}]
 
 [node name="Call" type="Node"]
 script = ExtResource("1_q7xeq")
 TextScene = ExtResource("2_mlx2l")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="images" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -21,3 +119,66 @@ grow_vertical = 2
 
 [node name="D1" type="Node" parent="Dee"]
 script = ExtResource("2_37eev")
+
+[node name="QUIZ" type="CanvasLayer" parent="."]
+visible = false
+script = ExtResource("4_dvaie")
+
+[node name="question_label" type="Label" parent="QUIZ"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 5
+theme_override_constants/shadow_outline_size = 5
+theme_override_font_sizes/font_size = 50
+
+[node name="answers_container" type="VBoxContainer" parent="QUIZ"]
+anchors_preset = -1
+anchor_left = 0.138021
+anchor_top = 0.459877
+anchor_right = 0.172743
+anchor_bottom = 0.527778
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="QUIZ/answers_container"]
+layout_mode = 2
+theme = ExtResource("5_khvg3")
+theme_override_font_sizes/font_size = 40
+
+[node name="Button2" type="Button" parent="QUIZ/answers_container"]
+layout_mode = 2
+theme = ExtResource("5_khvg3")
+theme_override_font_sizes/font_size = 40
+
+[node name="Button3" type="Button" parent="QUIZ/answers_container"]
+layout_mode = 2
+theme = ExtResource("5_khvg3")
+theme_override_font_sizes/font_size = 40
+
+[node name="Button4" type="Button" parent="QUIZ/answers_container"]
+layout_mode = 2
+theme = ExtResource("5_khvg3")
+theme_override_font_sizes/font_size = 40
+
+[node name="Animation" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.49, 1.49)
+sprite_frames = SubResource("SpriteFrames_ub3cg")
+animation = &"dee_scene_1"
+centered = false
+
+[node name="Effect" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.49, 1.49)
+sprite_frames = SubResource("SpriteFrames_gyhft")
+animation = &"SPEED"
+frame = 6
+frame_progress = 0.460923
+centered = false

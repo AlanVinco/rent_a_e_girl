@@ -4,7 +4,7 @@ signal stats_changed
 signal money_changed
 
 # Variables con setters
-@export var deePoints: int = 0:
+@export var deePoints: int = 100:
 	set(value):
 		deePoints = value
 		emit_signal("stats_changed")

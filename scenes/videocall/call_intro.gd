@@ -15,6 +15,7 @@ func _ready():
 	circulo.pivot_offset = circulo.size / 2
 	_iniciar_animacion_llamada()
 	await get_tree().create_timer(8.0).timeout
+	GlobalStats.change_scene_async("res://scenes/videocall/call.tscn")
 
 func _iniciar_animacion_llamada():
 	_animar_foto()

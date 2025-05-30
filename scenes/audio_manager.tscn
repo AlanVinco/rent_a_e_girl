@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://rlx7fa4w60np" path="res://scenes/sounds.gd" id="1_liach"]
 [ext_resource type="AudioStream" uid="uid://bl2f8brm2jriv" path="res://audio/sound/Typing sound.mp3" id="2_liach"]
 [ext_resource type="AudioStream" uid="uid://cbg7nedfofu7r" path="res://audio/music/game_money_theme.ogg" id="3_3asnw"]
-[ext_resource type="AudioStream" uid="uid://mbg08gklmvid" path="res://audio/music/lofi_1.ogg" id="4_m6ggh"]
+[ext_resource type="AudioStream" uid="uid://b5x3n2wj535os" path="res://audio/music/DESKTOP_THEME.ogg" id="3_kq7b2"]
 [ext_resource type="AudioStream" uid="uid://bler2qdi612g2" path="res://audio/music/DEE_THEME.ogg" id="5_aoitu"]
 [ext_resource type="AudioStream" uid="uid://j5q3yatb2231" path="res://audio/music/PAGE_THEME.mp3" id="6_njtn3"]
 [ext_resource type="AudioStream" uid="uid://cg258ybi0q2tg" path="res://audio/music/VIDEOCALL_THEME.mp3" id="7_kq7b2"]
@@ -11,7 +11,7 @@
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_m6ggh"]
 clip_count = 5
 clip_0/name = &"lofi_1"
-clip_0/stream = ExtResource("4_m6ggh")
+clip_0/stream = ExtResource("3_kq7b2")
 clip_0/auto_advance = 0
 clip_1/name = &"MONEY_GAME_THEME"
 clip_1/stream = ExtResource("3_3asnw")

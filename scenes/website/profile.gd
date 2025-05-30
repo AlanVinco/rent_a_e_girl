@@ -178,9 +178,10 @@ func _on_btn_selfie_start_pressed() -> void:
 			btn_chat_start.disabled = true
 
 func _on_btn_videocall_start_pressed() -> void:
-	var video_call_cost = int(get_avatar_by_username(username, "selfie"))
+	var video_call_cost = int(get_avatar_by_username(username, "videocall"))
 	GlobalStats.money -= video_call_cost
 	GlobalStats.egirl = username
+	GlobalStats.visualNovel == "DEEVISUAL1"
 	GlobalStats.change_scene_async("res://scenes/videocall/call_intro.tscn")
 
 func _on_btn_videocall_start_mouse_entered() -> void:
