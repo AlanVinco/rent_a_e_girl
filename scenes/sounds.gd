@@ -11,6 +11,13 @@ var clip_durations = {
 	"DEE_THEME": 199.003,
 	"PAGE_THEME": 116.189,
 	"VIDEOCALL_THEME":8.07,
+	"CLOSER1":5.334170,
+	"CLOSER2":5.325440,
+	"CLOSER3":10.663090,
+	"CLOSERFINAL":23.320,
+	"MEKARI_THEME":237.00,
+	"MIA_THEME":91.00,
+	"EVIL_THEME":300.00
 	# Agrega más clips y su duración aquí
 }
 

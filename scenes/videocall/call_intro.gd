@@ -14,7 +14,7 @@ func _ready():
 	foto.pivot_offset = foto.size / 2
 	circulo.pivot_offset = circulo.size / 2
 	_iniciar_animacion_llamada()
-	await get_tree().create_timer(8.0).timeout
+	await get_tree().create_timer(6.0).timeout
 	GlobalStats.change_scene_async("res://scenes/videocall/call.tscn")
 
 func _iniciar_animacion_llamada():
@@ -45,7 +45,10 @@ func check_egirl():
 	egirl_name.text = GlobalStats.egirl
 	if GlobalStats.egirl == "Dee":
 		foto.texture = load("res://asset/icons/dee_icon_circle.png")
+		GlobalStats.visualNovel="DEEVISUAL1"
 	elif GlobalStats.egirl == "Mekari":
 		foto.texture = load("res://asset/icons/mekari_icon_circle.png")
+		GlobalStats.visualNovel="MEKARIVISUAL1"
 	elif GlobalStats.egirl == "Mia":
 		foto.texture = load("res://asset/icons/mia_icon_circle.png")
+		GlobalStats.visualNovel="MIAVISUAL1"

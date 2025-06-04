@@ -3,6 +3,8 @@ extends Node
 #TEXTO
 
 signal on_all_texts_displayed
+signal next_animation
+signal previus_animation
 var actos = {}
 
 #TEXTO
@@ -102,3 +104,80 @@ func parse_csv_line(line):
 		result.append(current.strip_edges())
 
 	return result
+
+#RANDOM ANIMATION
+
+@onready var timer = $AnimationSpeed # Asegúrate de tener un Timer en la escena y asignarlo
+@onready var sprite = $Animation
+# Rango de velocidad de la animación
+@export var min_speed: float = 0.8
+@export var max_speed: float = 2.0
+
+# Rango de tiempo entre cambios de velocidad
+@export var min_time: float = 3.0
+@export var max_time: float = 6.0
+@export var activate_moan = false
+
+var current_sound = null  # Variable para almacenar el sonido actual
+
+func _set_random_speed():
+	var new_speed = randf_range(min_speed, max_speed)
+	sprite.speed_scale = new_speed  # Modifica la velocidad de la animación
+
+	var new_time = randf_range(min_time, max_time)
+	timer.start(new_time)  # Reinicia el timer con un tiempo aleatorio
+
+	var new_sound = null  # Para determinar qué sonido debe reproducirse
+
+	if activate_moan and new_speed <= 2 and new_speed > 1:
+		new_sound = "res://audio/sound/VOICES/GEMIDO_FUERTE1.ogg"
+	elif activate_moan and new_speed <= 1 and new_speed > 0.5:
+		new_sound = "res://audio/sound/VOICES/gime_leve1.ogg"
+	elif activate_moan and new_speed <= 0.5 and new_speed >= 0.8:
+		new_sound = "res://audio/sound/VOICES/GEMIDNO_SUAVE3.ogg"
+
+	# Si hay un nuevo sonido y no es el mismo que se está reproduciendo
+	if new_sound and (new_sound != current_sound or !$moanRandom.playing):
+		current_sound = new_sound  # Guardamos el sonido actual
+		$moanRandom.stream = load(new_sound)
+		$moanRandom.play()
+
+func _on_animation_speed_timeout() -> void:
+	_set_random_speed()  # Cambia la velocidad cuando el timer termine
+
+func shake_node(target: Node, duration: float = 0.5, intensity: float = 10.0):
+	if not target:
+		return
+	
+	var original_position = target.position
+	var tween := create_tween()
+	var shake_times := int(duration / 0.05)
+
+	for i in range(shake_times):
+		var offset = Vector2(
+			randf_range(-intensity, intensity),
+			randf_range(-intensity, intensity)
+		)
+		tween.tween_property(target, "position", original_position + offset, 0.025).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tween.tween_property(target, "position", original_position, 0.025).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+	# Asegura que al final se restaure la posición original
+	tween.tween_callback(func(): target.position = original_position)
+
+func _ready() -> void:
+	show_btns(false)
+func show_btns(value:bool):
+	$AnimationButtons/BTNnext.visible = value
+	$AnimationButtons/BTNback.visible = value
+
+#func _ready() -> void:
+	#show_btns(false)
+
+func _on_bt_nnext_pressed() -> void:
+	next_animation.emit()
+	
+func _on_bt_nback_pressed() -> void:
+	previus_animation.emit()
+
+func _on_button_call_icon_pressed() -> void:
+	GlobalStats.change_scene_async("res://scenes/desktop/desktop.tscn")

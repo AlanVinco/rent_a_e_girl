@@ -22,9 +22,9 @@ extends Control
 @onready var lbl_call_info: Label = $lbl_call_info
 
 var allResources = [
-	{"username": "Dee", "avatar": "res://asset/icons/dee_icon_circle.png", "voice": "", "chat": "10", "selfie": "5", "videocall":"10"},
-	{"username": "Mekari", "avatar": "res://asset/icons/mekari_icon_circle.png", "voice": "res://audio/sound/mekari/audio_mekari_1.ogg", "chat": "5", "videocall":"10"},
-	{"username": "Mia", "avatar": "res://asset/icons/mia_icon_circle.png", "voice": "res://audio/sound/mekari/audio_mekari_1.ogg", "chat": "50", "videocall":"10"},
+	{"username": "Dee", "avatar": "res://asset/icons/dee_icon_circle.png", "voice": "", "chat": "10", "selfie": "5", "videocall":"10", "gift1": "10", "gift2": "20", "gift3": "30", "gift4": "40" },
+	{"username": "Mekari", "avatar": "res://asset/icons/mekari_icon_circle.png", "voice": "res://audio/sound/mekari/audio_mekari_1.ogg", "chat": "5", "videocall":"10", "gift1": "20", "gift2": "30", "gift3": "40", "gift4": "50"},
+	{"username": "Mia", "avatar": "res://asset/icons/mia_icon_circle.png", "voice": "res://audio/sound/mekari/audio_mekari_1.ogg", "chat": "50", "videocall":"50", "gift1": "50", "gift2": "70", "gift3": "80", "gift4": "100"},
 ]
 
 @export var username = "Dee"
@@ -37,7 +37,6 @@ func _ready() -> void:
 	GlobalStats.stats_changed.connect(update_stats)
 
 func load_profile():
-	print(GlobalStats.deePoints)
 	var avatar_path = get_avatar_by_username(username, "username")
 	if avatar_path:
 		#load todo
@@ -45,6 +44,11 @@ func load_profile():
 		avatar.texture = load(get_avatar_by_username(username, "avatar"))
 		e_girl_voice.stream = load(get_avatar_by_username(username, "voice"))
 		e_chat_cost_label.text = "$ " + get_avatar_by_username(username, "chat")
+		$WishContainer/Panel/LabelGift1.text =  "$ " + get_avatar_by_username(username, "gift1")
+		$WishContainer/Panel2/LabelGift2.text =  "$ " + get_avatar_by_username(username, "gift2")
+		$WishContainer/Panel3/LabelGift3.text =  "$ " + get_avatar_by_username(username, "gift3")
+		$WishContainer/Panel4/LabelGift4.text =  "$ " + get_avatar_by_username(username, "gift4")
+		
 		update_stats()
 	else:
 		print("No se encontró el avatar para:", username)	
@@ -153,8 +157,10 @@ func update_stats():
 
 ## WISH LIST
 func _on_wish_btn_1_pressed() -> void:
-	GlobalStats.money -= 5
-	GlobalStats.deePoints += 10
+	var gift1_cost = int(get_avatar_by_username(username, "gift1"))
+	if gift1_cost <= GlobalStats.money:
+		GlobalStats.money -= gift1_cost
+		GlobalStats.deePoints += 5
 
 func _on_btn_selfie_start_pressed() -> void:
 	var e_chat_cost = int(get_avatar_by_username(username, "selfie"))
@@ -164,24 +170,23 @@ func _on_btn_selfie_start_pressed() -> void:
 		if username == "Dee":
 			GlobalStats.money -= e_chat_cost
 			send_selfie.emit(username)
-			GlobalStats.dee_chating = true
-			btn_chat_start.disabled = true
+			#GlobalStats.dee_chating = true
+			#btn_chat_start.disabled = true
 		elif username == "Mekari":
 			GlobalStats.money -= e_chat_cost
 			send_selfie.emit(username)
-			GlobalStats.mekari_chating = true
-			btn_chat_start.disabled = true
+			#GlobalStats.mekari_chating = true
+			#btn_chat_start.disabled = true
 		elif username == "Mia":
 			GlobalStats.money -= e_chat_cost
 			send_selfie.emit(username)
-			GlobalStats.mia_chating = true
-			btn_chat_start.disabled = true
+			#GlobalStats.mia_chating = true
+			#btn_chat_start.disabled = true
 
 func _on_btn_videocall_start_pressed() -> void:
 	var video_call_cost = int(get_avatar_by_username(username, "videocall"))
 	GlobalStats.money -= video_call_cost
 	GlobalStats.egirl = username
-	GlobalStats.visualNovel == "DEEVISUAL1"
 	GlobalStats.change_scene_async("res://scenes/videocall/call_intro.tscn")
 
 func _on_btn_videocall_start_mouse_entered() -> void:
@@ -189,3 +194,21 @@ func _on_btn_videocall_start_mouse_entered() -> void:
 
 func _on_btn_videocall_start_mouse_exited() -> void:
 	lbl_call_info.visible = false
+
+func _on_wish_btn_2_pressed() -> void:
+	var gift1_cost = int(get_avatar_by_username(username, "gift2"))
+	if gift1_cost <= GlobalStats.money:
+		GlobalStats.money -= gift1_cost
+		GlobalStats.deePoints += 10
+
+func _on_wish_btn_3_pressed() -> void:
+	var gift1_cost = int(get_avatar_by_username(username, "gift3"))
+	if gift1_cost <= GlobalStats.money:
+		GlobalStats.money -= gift1_cost
+		GlobalStats.deePoints += 20
+
+func _on_wish_btn_4_pressed() -> void:
+	var gift1_cost = int(get_avatar_by_username(username, "gift4"))
+	if gift1_cost <= GlobalStats.money:
+		GlobalStats.money -= gift1_cost
+		GlobalStats.deePoints += 30

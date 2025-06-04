@@ -7,7 +7,11 @@ extends CanvasLayer
 var current_language := "esp"  # Puede ser "es" o "en"
 var current_question_index := 0
 
+@export var max_numer_image = 4
+
 signal answerSelected
+
+signal lost
 
 var indexImage = 0
 
@@ -63,19 +67,26 @@ func _on_answer_selected(index):
 	var correct_index = questions[current_question_index][current_language]["correct"]
 	if index == correct_index:
 		print("¡Respuesta correcta!")
+		$"../audioPlayer".stream = load("res://audio/sound/NEWSOUNDS/quitar_feliz.ogg")
+		$"../audioPlayer".play()
 		indexImage += 1
 		emit_signal("answerSelected")
 	else:
+		$"../audioPlayer".stream = load("res://audio/sound/NEWSOUNDS/pregunta.ogg")
+		$"../audioPlayer".play()
 		print("Respuesta incorrecta.")
 		if indexImage  != 0:
 			indexImage -= 1
 		emit_signal("answerSelected")
 
 	current_question_index += 1
-	if current_question_index >= questions.size():
+	if current_question_index >= questions.size() or indexImage == max_numer_image:
 		#question_label.text = current_language == "es" and "¡Fin del quiz!" or "Quiz finished!"
 		for button in answers_container.get_children():
 			button.disabled = true
+			
+		if indexImage < max_numer_image:
+			lost.emit()
 	else:
 		update_ui()
 

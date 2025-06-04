@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dpppcsletwvma"]
+[gd_scene load_steps=27 format=3 uid="uid://dpppcsletwvma"]
 
 [ext_resource type="Script" uid="uid://c7uyruoevp4yd" path="res://scenes/website/profile.gd" id="1_nmsjo"]
 [ext_resource type="Texture2D" uid="uid://c5qfype7delp2" path="res://asset/icons/avatar_circle_test.png" id="1_qc7ab"]
@@ -8,10 +8,13 @@
 [ext_resource type="Texture2D" uid="uid://cdy3fni2obwn0" path="res://asset/icons/dolaricon-no_bg.png" id="4_t75ln"]
 [ext_resource type="Texture2D" uid="uid://2k855iklikrk" path="res://asset/icons/e-chat.png" id="5_uipia"]
 [ext_resource type="Texture2D" uid="uid://mf5kunli5gy7" path="res://asset/icons/selfie.png" id="6_juayx"]
-[ext_resource type="Texture2D" uid="uid://c284mbks7c86d" path="res://asset/objects/perfume_test.png" id="7_523wj"]
 [ext_resource type="Texture2D" uid="uid://brkis0v0klgh5" path="res://asset/icons/videoIcon.jpg" id="7_scylc"]
 [ext_resource type="Theme" uid="uid://b47stwiji5ix6" path="res://scenes/website/btn_buy_theme.tres" id="8_6nfab"]
 [ext_resource type="Texture2D" uid="uid://dxxh76yct2iw5" path="res://asset/icons/videollamada.png" id="8_8i2rs"]
+[ext_resource type="Texture2D" uid="uid://c8k61lm3ssu13" path="res://asset/objects/gift1.png" id="12_cpcfw"]
+[ext_resource type="Texture2D" uid="uid://daa64lem63mog" path="res://asset/objects/gift2.png" id="13_pb53a"]
+[ext_resource type="Texture2D" uid="uid://cddi4wdxitldd" path="res://asset/objects/gift3.png" id="14_omesh"]
+[ext_resource type="Texture2D" uid="uid://ceajxn81et3jy" path="res://asset/objects/gift4.png" id="15_5edju"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a1iej"]
 bg_color = Color(0.188235, 0.184314, 0.239216, 1)
@@ -309,6 +312,7 @@ text = "▶"
 metadata/_edit_use_anchors_ = true
 
 [node name="Panel3" type="Panel" parent="ordersContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -577,7 +581,7 @@ anchor_top = 0.0751445
 anchor_right = 0.626984
 anchor_bottom = 0.878613
 grow_vertical = 2
-texture = ExtResource("7_523wj")
+texture = ExtResource("12_cpcfw")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -608,7 +612,7 @@ texture = ExtResource("4_t75ln")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="WishContainer/Panel"]
+[node name="LabelGift1" type="Label" parent="WishContainer/Panel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.761905
@@ -635,11 +639,11 @@ anchor_top = 0.0751445
 anchor_right = 0.626984
 anchor_bottom = 0.878613
 grow_vertical = 2
-texture = ExtResource("7_523wj")
+texture = ExtResource("13_pb53a")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="WishContainer/Panel2"]
+[node name="wishBtn2" type="Button" parent="WishContainer/Panel2"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.662698
@@ -666,7 +670,7 @@ texture = ExtResource("4_t75ln")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="WishContainer/Panel2"]
+[node name="LabelGift2" type="Label" parent="WishContainer/Panel2"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.761905
@@ -693,11 +697,11 @@ anchor_top = 0.0751445
 anchor_right = 0.626984
 anchor_bottom = 0.878613
 grow_vertical = 2
-texture = ExtResource("7_523wj")
+texture = ExtResource("14_omesh")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="WishContainer/Panel3"]
+[node name="wishBtn3" type="Button" parent="WishContainer/Panel3"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.662698
@@ -724,7 +728,7 @@ texture = ExtResource("4_t75ln")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="WishContainer/Panel3"]
+[node name="LabelGift3" type="Label" parent="WishContainer/Panel3"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.761905
@@ -751,11 +755,11 @@ anchor_top = 0.0751445
 anchor_right = 0.626984
 anchor_bottom = 0.878613
 grow_vertical = 2
-texture = ExtResource("7_523wj")
+texture = ExtResource("15_5edju")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="WishContainer/Panel4"]
+[node name="wishBtn4" type="Button" parent="WishContainer/Panel4"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.662698
@@ -782,239 +786,7 @@ texture = ExtResource("4_t75ln")
 expand_mode = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="WishContainer/Panel4"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.761905
-anchor_top = 0.196532
-anchor_right = 0.920635
-anchor_bottom = 0.32948
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "5,00"
-metadata/_edit_use_anchors_ = true
-
-[node name="Panel5" type="Panel" parent="WishContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = SubResource("Theme_3f4ig")
-
-[node name="TextureRect" type="TextureRect" parent="WishContainer/Panel5"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0753968
-anchor_top = 0.0751445
-anchor_right = 0.626984
-anchor_bottom = 0.878613
-grow_vertical = 2
-texture = ExtResource("7_523wj")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Button" type="Button" parent="WishContainer/Panel5"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.662698
-anchor_top = 0.410405
-anchor_right = 0.940476
-anchor_bottom = 0.589595
-grow_horizontal = 0
-grow_vertical = 2
-theme = ExtResource("8_6nfab")
-theme_override_font_sizes/font_size = 20
-text = "btn_buy"
-metadata/_edit_use_anchors_ = true
-
-[node name="DolarIcon" type="TextureRect" parent="WishContainer/Panel5"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.611111
-anchor_top = 0.179191
-anchor_right = 0.769841
-anchor_bottom = 0.352601
-grow_horizontal = 0
-grow_vertical = 2
-texture = ExtResource("4_t75ln")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="WishContainer/Panel5"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.761905
-anchor_top = 0.196532
-anchor_right = 0.920635
-anchor_bottom = 0.32948
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "5,00"
-metadata/_edit_use_anchors_ = true
-
-[node name="Panel6" type="Panel" parent="WishContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = SubResource("Theme_3f4ig")
-
-[node name="TextureRect" type="TextureRect" parent="WishContainer/Panel6"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0753968
-anchor_top = 0.0751445
-anchor_right = 0.626984
-anchor_bottom = 0.878613
-grow_vertical = 2
-texture = ExtResource("7_523wj")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Button" type="Button" parent="WishContainer/Panel6"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.662698
-anchor_top = 0.410405
-anchor_right = 0.940476
-anchor_bottom = 0.589595
-grow_horizontal = 0
-grow_vertical = 2
-theme = ExtResource("8_6nfab")
-theme_override_font_sizes/font_size = 20
-text = "btn_buy"
-metadata/_edit_use_anchors_ = true
-
-[node name="DolarIcon" type="TextureRect" parent="WishContainer/Panel6"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.611111
-anchor_top = 0.179191
-anchor_right = 0.769841
-anchor_bottom = 0.352601
-grow_horizontal = 0
-grow_vertical = 2
-texture = ExtResource("4_t75ln")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="WishContainer/Panel6"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.761905
-anchor_top = 0.196532
-anchor_right = 0.920635
-anchor_bottom = 0.32948
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "5,00"
-metadata/_edit_use_anchors_ = true
-
-[node name="Panel7" type="Panel" parent="WishContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = SubResource("Theme_3f4ig")
-
-[node name="TextureRect" type="TextureRect" parent="WishContainer/Panel7"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0753968
-anchor_top = 0.0751445
-anchor_right = 0.626984
-anchor_bottom = 0.878613
-grow_vertical = 2
-texture = ExtResource("7_523wj")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Button" type="Button" parent="WishContainer/Panel7"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.662698
-anchor_top = 0.410405
-anchor_right = 0.940476
-anchor_bottom = 0.589595
-grow_horizontal = 0
-grow_vertical = 2
-theme = ExtResource("8_6nfab")
-theme_override_font_sizes/font_size = 20
-text = "btn_buy"
-metadata/_edit_use_anchors_ = true
-
-[node name="DolarIcon" type="TextureRect" parent="WishContainer/Panel7"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.611111
-anchor_top = 0.179191
-anchor_right = 0.769841
-anchor_bottom = 0.352601
-grow_horizontal = 0
-grow_vertical = 2
-texture = ExtResource("4_t75ln")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="WishContainer/Panel7"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.761905
-anchor_top = 0.196532
-anchor_right = 0.920635
-anchor_bottom = 0.32948
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_font_sizes/font_size = 30
-text = "5,00"
-metadata/_edit_use_anchors_ = true
-
-[node name="Panel8" type="Panel" parent="WishContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-theme = SubResource("Theme_3f4ig")
-
-[node name="TextureRect" type="TextureRect" parent="WishContainer/Panel8"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.0753968
-anchor_top = 0.0751445
-anchor_right = 0.626984
-anchor_bottom = 0.878613
-grow_vertical = 2
-texture = ExtResource("7_523wj")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Button" type="Button" parent="WishContainer/Panel8"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.662698
-anchor_top = 0.410405
-anchor_right = 0.940476
-anchor_bottom = 0.589595
-grow_horizontal = 0
-grow_vertical = 2
-theme = ExtResource("8_6nfab")
-theme_override_font_sizes/font_size = 20
-text = "btn_buy"
-metadata/_edit_use_anchors_ = true
-
-[node name="DolarIcon" type="TextureRect" parent="WishContainer/Panel8"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.611111
-anchor_top = 0.179191
-anchor_right = 0.769841
-anchor_bottom = 0.352601
-grow_horizontal = 0
-grow_vertical = 2
-texture = ExtResource("4_t75ln")
-expand_mode = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="WishContainer/Panel8"]
+[node name="LabelGift4" type="Label" parent="WishContainer/Panel4"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.761905
@@ -1058,3 +830,6 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="ordersContainer/Panel4/btn_videocall_start" to="." method="_on_btn_videocall_start_pressed"]
 [connection signal="pressed" from="btn_close" to="." method="_on_btn_close_pressed"]
 [connection signal="pressed" from="WishContainer/Panel/WishBtn1" to="." method="_on_wish_btn_1_pressed"]
+[connection signal="pressed" from="WishContainer/Panel2/wishBtn2" to="." method="_on_wish_btn_2_pressed"]
+[connection signal="pressed" from="WishContainer/Panel3/wishBtn3" to="." method="_on_wish_btn_3_pressed"]
+[connection signal="pressed" from="WishContainer/Panel4/wishBtn4" to="." method="_on_wish_btn_4_pressed"]

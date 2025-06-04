@@ -14,8 +14,9 @@ func show_loading():
 	tween.play()
 
 func hide_loading():
+	tween = get_tree().create_tween()  # Crea un nuevo tween limpio
 	tween.tween_property(color_rect, "modulate:a", 0.0, 0.5)
-	tween.tween_property(label, "modulate:a", 0.5, 0.5)
+	tween.tween_property(label, "modulate:a", 0.0, 0.5)  # Estaba en 0.5, deber ser 0.0
 	tween.play()
 	await tween.finished
 	visible = false

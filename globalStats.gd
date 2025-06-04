@@ -9,12 +9,12 @@ signal money_changed
 		deePoints = value
 		emit_signal("stats_changed")
 		
-@export var mekariPoints: int = 0:
+@export var mekariPoints: int = 100:
 	set(value):
 		mekariPoints = value
 		emit_signal("stats_changed")
 		
-@export var miaPoints: int = 0:
+@export var miaPoints: int = 100:
 	set(value):
 		miaPoints = value
 		emit_signal("stats_changed")
@@ -38,7 +38,7 @@ signal money_changed
 			unlocked_scenes[egirl].append(value)  # 👈 CORRECTO
 		print(unlocked_scenes)
 
-@export var visualNovel = "DEEVISUAL1":
+@export var visualNovel = "":
 	set(value):
 		visualNovel = value
 		if value not in unlocked_visual_novel:  # Verifica si el valor ya existe
@@ -85,6 +85,7 @@ func change_scene_async(scene_path: String) -> void:
 	var packed_scene = ResourceLoader.load_threaded_get(scene_path)
 
 	if packed_scene:
+		
 		# Esconde el loading
 		await loading_screen_instance.hide_loading()
 		
